@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tbl_pembeli', function (Blueprint $table) {
-            $table->id("ID_User");
-            $table->string('Nama', 50);
-            $table->string('No_Telepon', 50);
-            $table->string('Alamat', 100);
-
+        Schema::create('tbl_tiket', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
         });
     }
 
@@ -25,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('table_pembeli');
+        Schema::dropIfExists('tbl_tiket');
     }
 };
