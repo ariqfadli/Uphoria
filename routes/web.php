@@ -17,8 +17,8 @@ Route::get('/login ', function () {
     return view ('login') ;
 });
 
-Route::get('/sign up', function () {
-    return view ('sign up') ;
+Route::get('/resume', function () {
+    return view ('resume') ;
 });
 
 //home page (before login)
@@ -34,7 +34,7 @@ Route::get('/home', function () {
 
 //navigation bar
 Route::get('/logo', function () {
-    return view ('logo') ;
+    return view ('index') ;
 });
 
 Route::get('/order_history', function () {
