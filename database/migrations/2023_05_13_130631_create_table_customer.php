@@ -11,9 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tbl_tiket', function (Blueprint $table) {
+        Schema::enableForeignKeyConstraints();
+
+        Schema::create('tbl_customer', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->String('Name', 50);
+            $table->String('Contacts', 50);
+            $table->String('Address', 100);
+
+            
+
         });
     }
 
@@ -22,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tbl_tiket');
+        Schema::dropIfExists('table_customer');
     }
 };

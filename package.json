@@ -2,6 +2,7 @@
     "private": true,
     "type": "module",
     "scripts": {
+        "watch":"mix watch",
         "dev": "vite",
         "build": "vite build"
     },

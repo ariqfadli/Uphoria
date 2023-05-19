@@ -29,12 +29,12 @@ Route::get('/', function () {
 //homepage (after login)
 
 Route::get('/home', function () {
-    return view ('home') ;
+    return view ('index') ;
 });
 
 //navigation bar
 Route::get('/logo', function () {
-    return view ('index') ;
+    return view ('index.html') ;
 });
 
 Route::get('/order_history', function () {
