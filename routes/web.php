@@ -17,6 +17,10 @@ Route::get('/login ', function () {
     return view ('login') ;
 });
 
+Route::get('/signup ', function () {
+    return view ('signup') ;
+});
+
 Route::get('/resume', function () {
     return view ('resume') ;
 });
@@ -29,7 +33,7 @@ Route::get('/', function () {
 //homepage (after login)
 
 Route::get('/home', function () {
-    return view ('index') ;
+    return view ('home') ;
 });
 
 //navigation bar
@@ -43,10 +47,6 @@ Route::get('/order_history', function () {
 
 Route::get('/notification', function () {
     return view ('notification') ;
-});
-
-Route::get('/wishlist', function () {
-    return view ('wishlist') ;
 });
 
 Route::get('/profile', function () {
