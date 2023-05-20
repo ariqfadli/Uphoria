@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content />
         <meta name="author" content />
-        <title>Modern Business - Start Bootstrap Template</title>
+        <title>Uphoria - Login</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Custom Google font-->
@@ -35,10 +35,10 @@
             <section class="py-5">
                 <div class="container px-5">
                     <!-- Contact form-->
-                    <div class="bg-light rounded-4 py-5 px-4 px-md-5">
+                    <div class="bg-light rounded-4 py-5 px-4 px-md-4">
                         <div class="text-center mb-5">
                         </div>
-                        <div class="row gx-5 justify-content-center">
+                        <div class="row gx-1 justify-content-center">
                             <div class="col-lg-8 col-xl-6">
                                 <!-- * * * * * * * * * * * * * * *-->
                                 <!-- * * SB Forms Contact Form * *-->
@@ -78,7 +78,9 @@
                                     <!-- Submit Button-->
                                     <div class="d-grid"><button class="btn btn-primary btn-lg" href="home"><a class="nav-link" href="/home">Log In</a></button></div>
                                     <!-- <li class="text-right"><a class="nav-link" href="/home">Log In</a></li> -->
-                                    <class="text-left"><a class="nav-link" href="/signup">Sign Up</a>
+                                    <br>
+                                    <div class="d-grid"><button class="btn btn-primary btn-lg" href="home"><a class="nav-link" href="/signup">Sign Up</a></button></div>
+                                    {{-- <class="text-left"><a class="nav-link" href="/signup">Sign Up</a>< --}}
                                 </form>
                             </div>
                         </div>

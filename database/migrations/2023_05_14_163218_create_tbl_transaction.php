@@ -16,10 +16,16 @@ return new class extends Migration
 
         Schema::create('tbl_transaction', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('ID_customer');
+            $table->unsignedBigInteger('ID_ticket');
             $table->String('Username');
             $table->String("Payment_Method", 25);
             $table->integer("Total_Price");
-            $table->timestamp("added at", 0);
+            $table->dateTime("Transaction_date", 0);
+            $table->foreign('ID_customer')->references('id')->on('tbl_customer')->onDelete('cascade');
+            $table->foreign('ID_ticket')->references('id')->on('tbl_ticket')->onDelete('cascade');
+
+            
             
             
 

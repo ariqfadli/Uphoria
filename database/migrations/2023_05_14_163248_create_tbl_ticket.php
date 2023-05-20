@@ -15,6 +15,7 @@ return new class extends Migration
         
         Schema::create('tbl_ticket', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger("ID_event");
             $table->String("Ticket_name", 50);
             $table->String("CAT",20);
             $table->String("Seat", 20);
@@ -22,6 +23,9 @@ return new class extends Migration
             $table->String("Section", 30);
             $table->integer("Ticket_price");
             $table->String("Row", 10);
+            $table->foreign('ID_event')->references('id')->on('tbl_event')->onDelete('cascade');
+            
+            
         });
     }
 

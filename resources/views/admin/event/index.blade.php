@@ -15,7 +15,7 @@
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/style.css" rel="stylesheet" />
     </head>
     <body class="d-flex flex-column h-100">
         <main class="flex-shrink-0">
@@ -37,7 +37,21 @@
             </nav>
             <!-- Header-->
             <header class="py-5">
-                <div class="container px-5 pb-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>
+                                        Event Detail
+                                        <a href="{{ url('admin/event/create') }}" class="btn btn-primary float-end">Add Event</a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- <div class="container px-5 pb-5">
                     <div class="row gx-5 align-items-center">
                         <div class="col-xxl-5">
                             <!-- Header text content-->
@@ -64,7 +78,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </header>
             <!-- About Section-->
             <section class="bg-light py-5">

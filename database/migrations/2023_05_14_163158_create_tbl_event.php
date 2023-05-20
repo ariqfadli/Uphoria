@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->String("Rundown");
             $table->String("Concert_Name");
-            $table->String("Concert_Date");
+            $table->date("Concert_Date");
             $table->String("Concert_Location");
         });
     }
