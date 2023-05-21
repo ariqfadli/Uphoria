@@ -20,11 +20,6 @@ Route::get('/login ', function () {
 Route::get('/signup ', function () {
     return view ('signup') ;
 });
-
-// Route::middleware(['auth','admin'])->name('admin.')->prefix('admin')->group(function() {
-
-// });
-
 //homepage (before login)
 Route::get('/', function () {
     return view ('index') ;
@@ -50,10 +45,17 @@ Route::get('/concert', function () {
     return view ('concert') ;
 });
 
-
-Route::get('/order_history', function () {
-    return view ('order_history') ;
+Route::get('/wishlist', function () {
+    return view ('wishlist') ;
 });
+
+Route::get('/transaction', function () {
+    return view ('transaction') ;
+});
+
+// Route::get('/order_history', function () {
+//     return view ('order_history') ;
+// });
 
 Route::get('/notification', function () {
     return view ('notification') ;
@@ -65,53 +67,23 @@ Route::get('/profile', function () {
 
 //admin
 
-Route::prefix('admin')->group(function(){
-
-    Route::controller(App\Http\Controllers\eventController::class)->group(function() {
-        
-        Route::get('event', 'index');
-        Route::get('event/create', 'create');
-        Route::post('event', 'store');
-    });
+Route::prefix('admin')->group(function() {
+    Route::get('event', 'App\Http\Controllers\eventController@index');
+    Route::get('event/create', 'App\Http\Controllers\eventController@create');
+    Route::post('event', 'App\Http\Controllers\eventController@store');
 });
+
+
+// Route::prefix('admin')->group(function() {
+//     Route::get('event', 'App\Http\Controllers\eventController@index');
+//     Route::get('event/create', 'App\Http\Controllers\eventController@create');
+//     Route::post('event', 'App\Http\Controllers\eventController@store');
+// });
 
 //home
 
 Route::get('/home_admin', function(){
     return view('admin.home');
 });
-
-//Profile
-
-// Route::get('/profile_my_account', function () {
-//     return view ('profile_my_account') ;
-// });
-
-// Route::get('/profile_my_order', function () {
-//     return view ('profile_my_order') ;
-// });
-
-// Route::get('/profile_my_order/detail', function () {
-//     return view ('detail_order') ;
-// });
-
-// Route::get('/profile_payment_method', function () {
-//     return view ('profile_payment_method') ;
-// });
-
-// Route::get('/profile_help', function () {
-//     return view ('profile_help') ;
-// });
-
-// Route::get('/profile_logout', function () {
-//     return view ('landing_page') ;
-// });
-
-// Route::prefix()
-
-
-
-
-
 
 

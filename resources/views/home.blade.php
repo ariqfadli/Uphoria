@@ -22,13 +22,14 @@
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
                 <div class="container px-5">
-                <img class="profile-img" src="assets/uphoria.png" alt="..." />
+                    <img class="profile-img" src="assets/uphoria.png" alt="..." />
                     <a class="navbar-brand" href="/home"><span class="fw-bolder text-primary">Uphoria</span></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
                             <li class="nav-item"><a class="nav-link" href="/ticket">Ticket</a></li>
                             <li class="nav-item"><a class="nav-link" href="/wishlist">Wishlist</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/transaction">Transaction</a></li>
                             <li class="nav-item"><a class="nav-link" href="/notification">Notification</a></li>
                             <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
                         </ul>
@@ -42,7 +43,7 @@
                         <div class="col-xxl-5">
                             <!-- Header text content-->
                             <div class="text-center text-xxl-start">
-                        
+                                <div class="badge bg-gradient-primary-to-secondary text-white mb-4"><div class="text-uppercase">Ticket &middot; Concert </div></div>
                                 <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">SBS MTV The Kpop Show Ticket  Package</span></h1>
                                 <div class="fs-3 fw-light text-muted">Look no further! Our SBS The Show tickets are the simplest way for you to experience a live Kpop recording.</div>
                                 <br>
