@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,76 +13,31 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-//login & signup
-Route::get('/login ', function () {
-    return view ('login') ;
-});
 
-Route::get('/signup ', function () {
-    return view ('signup') ;
-});
-
-Route::get('/resume', function () {
-    return view ('resume') ;
-});
-
-//home page (before login)
 Route::get('/', function () {
-    return view ('index') ;
+    return view('home');
 });
 
-//homepage (after login)
-
-Route::get('/home', function () {
-    return view ('home') ;
-});
-
-//navigation bar
-Route::get('/logo', function () {
-    return view ('index.html') ;
-});
-
-Route::get('/order_history', function () {
-    return view ('order_history') ;
+Route::get('/myorder', function () {
+    return view('myorder');
 });
 
 Route::get('/notification', function () {
-    return view ('notification') ;
+    return view('notification');
 });
 
 Route::get('/profile', function () {
-    return view ('profile') ;
+    return view('profile');
 });
 
-//Profile
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/profile_my_account', function () {
-    return view ('profile_my_account') ;
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/profile_my_order', function () {
-    return view ('profile_my_order') ;
-});
-
-Route::get('/profile_my_order/detail', function () {
-    return view ('detail_order') ;
-});
-
-Route::get('/profile_payment_method', function () {
-    return view ('profile_payment_method') ;
-});
-
-Route::get('/profile_help', function () {
-    return view ('profile_help') ;
-});
-
-Route::get('/profile_logout', function () {
-    return view ('landing_page') ;
-});
-
-
-
-
-
-
-
+require __DIR__.'/auth.php';

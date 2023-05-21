@@ -27,40 +27,58 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
+                            <li class="nav-item"><a class="nav-link" href="myorder">My Order</a></li>
+                            <li class="nav-item"><a class="nav-link" href="notification">Notification</a></li>
+                            <li class="nav-item"><a class="nav-link" href="profile">Profile</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
-            <!-- Header-->
-            <header class="py-5">
-                <div class="container px-5 pb-5">
-                    <div class="row gx-5 align-items-center">
-                        <div class="col-xxl-5">
-                            <!-- Header text content-->
-                            <div class="text-center text-xxl-start">
-                                <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">SBS MTV The Kpop Show Ticket  Package</span></h1>
-                                <div class="fs-3 fw-light text-muted">Look no further! Our SBS The Show tickets are the simplest way for you to experience a live Kpop recording.</div>
-                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
+            <section class="py-5">
+                <div class="container px-5 mb-5">
+                    <div class="text-center mb-5">
+                        <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Event</span></h1>
+                    </div>
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-lg-11 col-xl-9 col-xxl-8">
+                            <!-- Project Card 1-->
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                                <div class="card-body p-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="p-5">
+                                            <h2 class="fw-bolder">BLACKPINK WORLD TOUR [BORN PINK] JAKARTA</h2>
+                                            <p>We’ll get you directly seated and inside for you to enjoy the show.</p>
+                                        </div>
+                                        <img class="profile-img" src="assets/bp.png" alt="..." />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xxl-7">
-                            <!-- Header profile picture-->
-                            <div class="d-flex justify-content-center mt-5 mt-xxl-0">
-                                <div class="profile bg-gradient-primary-to-secondary">
-                                    <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
-                                    <!-- Watch a tutorial on how to do this on YouTube (link)-->
-                                    <img class="profile-img" src="assets/bts.jpg" alt="..." />
-                                    
-                                    
+                            <!-- Project Card 2-->
+                            <div class="card overflow-hidden shadow rounded-4 border-0">
+                                <div class="card-body p-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="p-5">
+                                            <h2 class="fw-bolder">Tulus Concert "Menjadi Manusia" 2023</h2>
+                                            <p>We’ll get you directly seated and inside for you to enjoy the show.</p>
+                                        </div>
+                                        <img class="profile-img" src="assets/tls.jpeg" alt="..." />
+                                    </div>
+                            <!-- Project Card 3-->
+                            <div class="card overflow-hidden shadow rounded-4 border-0">
+                                <div class="card-body p-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="p-5">
+                                            <h2 class="fw-bolder">Coldplay Music of The Spheres World Tour in Jakarta 2023</h2>
+                                            <p>We’ll get you directly seated and inside for you to enjoy the show.</p>
+                                        </div>
+                                        <img class="profile-img" src="assets/cp.png" alt="..." />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </header>
+            </section>
             <!-- About Section-->
             <section class="bg-light py-5">
                 <div class="container px-5">
@@ -83,6 +101,7 @@
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                     <div class="col-auto"><div class="small m-0">Copyright &copy; Your Website 2023</div></div>
                     <div class="col-auto">
+                    </div>
                 </div>
             </div>
         </footer>

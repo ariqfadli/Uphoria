@@ -83,6 +83,7 @@
                                     <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                                     <!-- Submit Button-->
                                     <div class="d-grid"><button class="btn btn-primary btn-lg" href="home"><a class="nav-link" href="/home">Sign Up</a></button></div>
+                                    <div id="emailHelp" class="form-text text-center mb-5 text-dark">Have an account? <a href="login" class="text-dark fw-bold"> Log In</a>
                                 </form>
                             </div>
                         </div>
