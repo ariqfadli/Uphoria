@@ -24,6 +24,7 @@ return new class extends Migration
             $table->integer("Ticket_price");
             $table->String("Row", 10);
             $table->foreign('ID_event')->references('id')->on('tbl_event')->onDelete('cascade');
+            $table->timestamps();  
             
             
         });

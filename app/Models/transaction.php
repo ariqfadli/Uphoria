@@ -16,4 +16,11 @@ class transaction extends Model
     
     protected $table = 'tbl_transaction';
     protected $primaryKey = 'ID_transaction';
+    protected $fillable =[
+        'ID_ticket',
+        'ID_customer',
+        'Payment_Method',
+        'Transaction_date',
+        'Total_Price',
+    ]; 
 }

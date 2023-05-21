@@ -18,16 +18,12 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('ID_customer');
             $table->unsignedBigInteger('ID_ticket');
-            $table->String('Username');
             $table->String("Payment_Method", 25);
             $table->integer("Total_Price");
-            $table->dateTime("Transaction_date", 0);
+            $table->date("Transaction_date");
             $table->foreign('ID_customer')->references('id')->on('tbl_customer')->onDelete('cascade');
             $table->foreign('ID_ticket')->references('id')->on('tbl_ticket')->onDelete('cascade');
-
-            
-            
-            
+            $table->timestamps();        
 
         });
     }

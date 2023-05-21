@@ -73,6 +73,27 @@ Route::prefix('admin')->group(function() {
     Route::post('event', 'App\Http\Controllers\eventController@store');
 });
 
+Route::prefix('admin')->group(function() {
+    Route::get('customer', 'App\Http\Controllers\customerController@index');
+    Route::get('customer/create', 'App\Http\Controllers\customerController@create');
+    Route::post('customer', 'App\Http\Controllers\customerController@store');
+});
+
+Route::prefix('admin')->group(function() {
+    Route::get('ticket', 'App\Http\Controllers\ticketController@index');
+    Route::get('ticket/create', 'App\Http\Controllers\ticketController@create');
+    Route::post('ticket', 'App\Http\Controllers\ticketController@store');
+});
+
+Route::prefix('admin')->group(function() {
+    Route::get('transaction', 'App\Http\Controllers\transactionController@index');
+    Route::get('transaction/create', 'App\Http\Controllers\transactionController@create');
+    Route::post('transaction', 'App\Http\Controllers\transactionController@store');
+});
+
+
+
+
 
 // Route::prefix('admin')->group(function() {
 //     Route::get('event', 'App\Http\Controllers\eventController@index');

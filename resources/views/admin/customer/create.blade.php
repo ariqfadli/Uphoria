@@ -43,28 +43,24 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4>
-                                        Add Event
-                                        <a href="{{ url('admin/event') }}" class="btn btn-primary float-end">Back</a>
+                                        Add Customer
+                                        <a href="{{ url('admin/customer') }}" class="btn btn-primary float-end">Back</a>
                                     </h4>
                                 </div>
                                 <div class="card-body">
-                                    <form action="{{ url('admin/event') }}" method="POST">
+                                    <form action="{{ url('admin/customer') }}" method="POST">
                                         @csrf
                                         <div class="mb-3">
-                                            <label>Concert Name</label>
-                                            <input type="text" name="Concert_Name"class="form-control">
+                                            <label>Name</label>
+                                            <input type="text" name="Name"class="form-control">
                                         </div>
                                         <div class="mb-3">
-                                            <label>Concert_Date</label>
-                                            <input type="date" name="Concert_Date"class="form-control">
+                                            <label>Contacts</label>
+                                            <input type="text" name="Contacts"class="form-control">
                                         </div>
                                         <div class="mb-3">
-                                            <label>Rundown</label>
-                                            <input type="text" name="Rundown"class="form-control">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label>Concert Location</label>
-                                            <input type="text" name="Concert_Location"class="form-control">
+                                            <label>Address</label>
+                                            <input type="text" name="Address"class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <button type="submit" class="btn btn-primary">Add</button>

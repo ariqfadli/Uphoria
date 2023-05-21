@@ -13,7 +13,7 @@ class ticket extends Model
     protected $table = 'tbl_ticket';
     protected $primaryKey = 'ID_ticket';
     protected $fillable =[
-        'ID_event',
+        'ID_customer',
         'Ticket_name',
         'CAT',
         'Seat',

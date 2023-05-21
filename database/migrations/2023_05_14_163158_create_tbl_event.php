@@ -19,6 +19,7 @@ return new class extends Migration
             $table->String("Concert_Name");
             $table->date("Concert_Date");
             $table->String("Concert_Location");
+            $table->timestamps();  
         });
     }
 
