@@ -27,10 +27,10 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="/ticket">Ticket</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/wishlist">Wishlist</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/notification">Notification</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/admin/customer">Customer</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/admin/transaction">Transaction</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/admin/ticket">Ticket</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/admin/event">Event/Concert</a></li>
                         </ul>
                     </div>
                 </div>
@@ -43,28 +43,50 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4>
-                                        Add Event
-                                        <a href="{{ url('admin/event') }}" class="btn btn-primary float-end">Back</a>
+                                        Add Ticket
+                                        <a href="{{ url('admin/ticket') }}" class="btn btn-primary float-end">Back</a>
                                     </h4>
                                 </div>
                                 <div class="card-body">
-                                    <form action="{{ url('admin/event') }}" method="POST">
+                                    <form action="{{ url('admin/ticket') }}" method="POST">
                                         @csrf
                                         <div class="mb-3">
-                                            <label>Concert Name</label>
-                                            <input type="text" name="Concert_Name"class="form-control">
+                                            <label>Select Concert</label>
+                                            <select name="ID_event" class="form-control">
+                                                @foreach ($event as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->Concert_Name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <div class="mb-3">
-                                            <label>Concert_Date</label>
-                                            <input type="date" name="Concert_Date"class="form-control">
+                                            <label>CAT</label>
+                                            <input type="text" name="CAT"class="form-control">
+                                            {{-- <select name="ID_ticket" class="form-control">
+                                                @foreach ($event as $item)
+                                                    <option value=" ">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select> --}}
                                         </div>
                                         <div class="mb-3">
-                                            <label>Rundown</label>
-                                            <input type="text" name="Rundown"class="form-control">
+                                            <label>Seat</label>
+                                            <input type="text" name="Concert_Date"class="form-control">
+                                            {{-- <select name="ID_ticket" class="form-control">
+                                                @foreach ($event as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select> --}}
                                         </div>
                                         <div class="mb-3">
-                                            <label>Concert Location</label>
-                                            <input type="text" name="Concert_Location"class="form-control">
+                                            <label>Section</label>
+                                            <input type="text" name="Section"class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>Ticket_price</label>
+                                            <input type="number" name="Ticket_price"class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>Row</label>
+                                            <input type="text" name="Row"class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <button type="submit" class="btn btn-primary">Add</button>

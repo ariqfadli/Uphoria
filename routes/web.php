@@ -29,7 +29,7 @@ Route::get('/', function () {
 //homepage for user(after login)
 
 Route::get('/home', function () {
-    return view ('home') ;
+    return view ('admin/home') ;
 });
 
 //navigation bar
@@ -71,12 +71,19 @@ Route::prefix('admin')->group(function() {
     Route::get('event', 'App\Http\Controllers\eventController@index');
     Route::get('event/create', 'App\Http\Controllers\eventController@create');
     Route::post('event', 'App\Http\Controllers\eventController@store');
+    Route::get('customer/{id}/edit', 'App\Http\Controllers\eventController@edit')->name('admin.event.edit');
+    Route::put('customer/{id}', 'App\Http\Controllers\eventController@update')->name('admin.event.update');
+    Route::delete('customer/{id}', 'App\Http\Controllers\eventController@destroy')->name('admin.event.destroy');
 });
 
 Route::prefix('admin')->group(function() {
     Route::get('customer', 'App\Http\Controllers\customerController@index');
     Route::get('customer/create', 'App\Http\Controllers\customerController@create');
     Route::post('customer', 'App\Http\Controllers\customerController@store');
+    Route::get('customer/{id}/edit', 'App\Http\Controllers\customerController@edit')->name('admin.customer.edit');
+    Route::put('customer/{id}', 'App\Http\Controllers\customerController@update')->name('admin.customer.update');
+    Route::delete('customer/{id}', 'App\Http\Controllers\customerController@destroy')->name('admin.customer.destroy');
+
 });
 
 Route::prefix('admin')->group(function() {

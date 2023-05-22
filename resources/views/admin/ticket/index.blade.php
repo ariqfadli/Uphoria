@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Uphoria - Event</title>
+        <title>Uphoria - Ticket</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Custom Google font-->
@@ -50,8 +50,8 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4>
-                                        Event Detail
-                                        <a href="{{ url('admin/event/create') }}" class="btn btn-primary float-end">Add Event</a>
+                                        Ticket Detail
+                                        <a href="{{ url('admin/ticket/create') }}" class="btn btn-primary float-end">Add Ticket</a>
                                     </h4>
                                 </div>
                                 <div class="card-body">
@@ -59,26 +59,30 @@
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>Concert_Name</th>
-                                                    <th>Rundown</th>
-                                                    <th>Concert_Date</th>
-                                                    <th>Concert_Location</th>
+                                                    <th>ID_Ticket</th>
+                                                    <th>ID_Event</th>
+                                                    <th>CAT</th>
+                                                    <th>Seat</th>
+                                                    <th>Section</th>
+                                                    <th>Ticket Price</th>
+                                                    <th>Row</th>
                                                     <th>Action</th>
                                                     {{-- <th>Concert_Location</th> --}}
                                                 
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($event as $item)
+                                                @foreach ($ticket as $item)
                                                 <tr>
                                                     <td>{{ $item->id }}</td>
-                                                    <td>{{ $item->Concert_Name }}</td>
-                                                    <td>{{ $item->Rundown }}</td>
-                                                    <td>{{ $item->Concert_Date }}</td>
-                                                    <td>{{ $item->Concert_Location }}</td>
+                                                    <td>{{ $item->event->Concert_Name }}</td>
+                                                    <td>{{ $item->CAT }}</td>
+                                                    <td>{{ $item->Seat }}</td>
+                                                    <td>{{ $item->Section }}</td>
+                                                    <td>{{ $item->Ticket_Price }}</td>
+                                                    <td>{{ $item->Row }}</td>
                                                     <td>
-                                                        Action
+                                                        <a href= "{{ url('admin// ') }}" class="btn btn-success"></a>
                                                     </td>
                                                 </tr>
                                                 @endforeach

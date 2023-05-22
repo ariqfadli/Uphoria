@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\ticket;
+use App\Models\event;
 use Illuminate\Http\Request;
 
 class ticketController extends Controller
 {
     public function index()
     {
-        $event = ticket::all();
+        $ticket = ticket::all();
         return view('admin.ticket.index', compact('ticket'));
     }
 
@@ -18,7 +19,8 @@ class ticketController extends Controller
      */
     public function create()
     {
-        return view('admin.ticket.create');
+        $event = event::all();
+        return view('admin.ticket.create', compact('event'));
     }
 
     /**
@@ -26,8 +28,19 @@ class ticketController extends Controller
      */
     public function store(Request $request)
     {
-        ticket::create([
-            
+        $event = event::findOrFail($request->event_id);
+        $event->ticket()->create([
+            'Concert_Name' => $request->Concert_Name,
+            // 'Concert_Date' => $request->Concert_Date,
+            // 'Concert_Location' => $request->Concert_Location,
+        ]);
+        $ticket=ticket::create([
+            'CAT'=>$request->CAT,
+            'Seat'=>$request->Seat,
+            'Section'=>$request->Section,
+            'Ticket_Price'=>$request->Ticket_Price,
+            'Row' =>$request->Row,
+
         ]);
 
         return redirect('admin/ticket')->with('message', 'Ticket added!');

@@ -32,5 +32,30 @@ class eventController extends Controller
     
         return redirect('admin/event')->with('message', 'Event Added');
     }
+
+    public function edit($id)
+    {
+        // return $customer;
+        $event=event::findOrFail($id);
+        return view('admin.event.edit', compact('event'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $event = event::findOrFail($id);
+
+        $validatedData = $request->validate([
+            'Concert_Name'=>'required|string|max:255',
+            'Concert_Date'=>'required|date|max:255',
+            'Rundown'=>'required|string|max:255',
+            'Concert_Location'=>'required|string|max:255',
+        ]);
+
+        $event->update($validatedData);
+
+        return redirect('admin/event')->with('message', 'Customer updated successfully!');
+    }
+
+
     
 }

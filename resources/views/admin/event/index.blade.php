@@ -30,7 +30,7 @@
                             <li class="nav-item"><a class="nav-link" href="/admin/customer">Customer</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin/transaction">Transaction</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin/ticket">Ticket</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/admin">Event/Concert</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/admin/event">Event/Concert</a></li>
                             {{-- <li class="nav-item"><a class="nav-link" href="/notification">Notification</a></li>
                             <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li> --}}
                         </ul>
@@ -78,7 +78,12 @@
                                                     <td>{{ $item->Concert_Date }}</td>
                                                     <td>{{ $item->Concert_Location }}</td>
                                                     <td>
-                                                        Action
+                                                        <a href="{{ url('admin/event/'.$item->id.'/edit') }}" class="btn btn-success">Edit</a>
+                                                        {{-- <form action="{{ route('admin.event.destroy', ['id' => $item->id]) }}" method="POST" class="d-inline">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                        </form> --}}
                                                     </td>
                                                 </tr>
                                                 @endforeach

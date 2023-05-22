@@ -16,10 +16,8 @@ return new class extends Migration
         Schema::create('tbl_ticket', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("ID_event");
-            $table->String("Ticket_name", 50);
             $table->String("CAT",20);
             $table->String("Seat", 20);
-            $table->String("Ticket_amount", 25);
             $table->String("Section", 30);
             $table->integer("Ticket_price");
             $table->String("Row", 10);

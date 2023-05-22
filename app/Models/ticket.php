@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\event;
 use Ramsey\Uuid\Uuid;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,17 +12,22 @@ class ticket extends Model
 {
     use HasFactory;
     protected $table = 'tbl_ticket';
-    protected $primaryKey = 'ID_ticket';
+
     protected $fillable =[
-        'ID_customer',
-        'Ticket_name',
+        'ID_event',
+        'Concert_Name',
         'CAT',
         'Seat',
-        'Ticket_amount',
         'Section',
         'Ticket_Price',
         'Row',
     ];
+
+    public function event()
+    {
+        return $this->belongsTo(event::class, 'ID_ticket', 'id');
+    }
+
 }
 
 

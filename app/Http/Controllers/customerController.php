@@ -40,30 +40,46 @@ class customerController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        // return $customer;
+        $customer=customer::findOrFail($id);
+        return view('admin.customer.edit', compact('customer'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $customer = customer::findOrFail($id);
+
+        $validatedData = $request->validate([
+            'Name'=>'required|string|max:255',
+            'Contacts'=>'required|string|max:255',
+            'Address'=>'required|string|max:255',
+        ]);
+
+        $customer->update($validatedData);
+
+        return redirect('admin/customer')->with('message', 'Customer updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $customer = Customer::findOrFail($id);
+        $customer->delete();
+
+        return redirect('admin/customer')->with('message', 'Customer deleted successfully!');
     }
+
 }

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Uphoria - Customer</title>
+        <title>Uphoria - Edit Event</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Custom Google font-->
@@ -22,7 +22,7 @@
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
                 <div class="container px-5">
-                {{-- <img class="profile-img" src="{{ asset('uphoria.png') }}" alt="..." /> --}}
+                {{-- <img class="profile-img" src="{{ asset('img/uphoria.png') }}" alt="..." /> --}}
                     <a class="navbar-brand" href="/home"><span class="fw-bolder text-primary">Uphoria</span></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -31,8 +31,6 @@
                             <li class="nav-item"><a class="nav-link" href="/admin/transaction">Transaction</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin/ticket">Ticket</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin/event">Event/Concert</a></li>
-                            {{-- <li class="nav-item"><a class="nav-link" href="/notification">Notification</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li> --}}
                         </ul>
                     </div>
                 </div>
@@ -42,56 +40,38 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-
-                            @if (session('message'))
-                                <div class="alert alert-success">{{ session('message') }}</div>
-                            @endif
-
                             <div class="card">
                                 <div class="card-header">
                                     <h4>
-                                        Customer Detail
-                                        <a href="{{ url('admin/customer/create') }}" class="btn btn-primary float-end">Add Customer</a>
+                                        Edit Customer
+                                        <a href="{{ url('admin/event')}}" class="btn btn-primary float-end">Back</a>
                                     </h4>
                                 </div>
                                 <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Name</th>
-                                                    <th>Contacts</th>
-                                                    <th>Address</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($customer as $item)
-                                                <tr>
-                                                    <td>{{ $item->id }}</td>
-                                                    <td>{{ $item->Name }}</td>
-                                                    <td>{{ $item->Contacts }}</td>
-                                                    <td>{{ $item->Address}}</td>
-                                                    <td>
-                                                        <a href="{{ url('admin/customer/'.$item->id.'/edit') }}" class="btn btn-success">Edit</a>
-                                                        <form action="{{ route('admin.customer.destroy', ['id' => $item->id]) }}" method="POST" class="d-inline">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                                        </form>
-                                                    </td>
-                                                </tr>
-                                                @endforeach
-                                            </tbody>
+                                    <form action="{{ route('admin.customer.update', ['id'=>$customer->id]) }}" method="POST">
 
-                                        </table>
-                                    </div>
-                                    <br>
-                                        {{-- <div class="mb-3">
-                                            <button type="submit" class="btn btn-primary">Edit</button>
-                                        </div> --}}
-                                    
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="mb-3">
+                                            <label>Concert_Name</label>
+                                            <input type="text" name="Concert_Name" value="{{ $customer->Concert_Name }}" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>Concert_Date</label>
+                                            <input type="date" name="Consert_Date" value="{{ $customer->Consert_Date}}" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>Rundown</label>
+                                            <input type="text" name="Rundown" value="{{ $customer->Rundown }}" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>Concert_Location</label>
+                                            <input type="text" name="Concert_Location" value="{{ $customer->Concert_Location }}" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <button type="submit" class="btn btn-success">Update</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
