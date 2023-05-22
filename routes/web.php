@@ -71,9 +71,9 @@ Route::prefix('admin')->group(function() {
     Route::get('event', 'App\Http\Controllers\eventController@index');
     Route::get('event/create', 'App\Http\Controllers\eventController@create');
     Route::post('event', 'App\Http\Controllers\eventController@store');
-    Route::get('customer/{id}/edit', 'App\Http\Controllers\eventController@edit')->name('admin.event.edit');
-    Route::put('customer/{id}', 'App\Http\Controllers\eventController@update')->name('admin.event.update');
-    Route::delete('customer/{id}', 'App\Http\Controllers\eventController@destroy')->name('admin.event.destroy');
+    Route::get('event/{id}/edit', 'App\Http\Controllers\eventController@edit')->name('admin.event.edit');
+    Route::put('event/{id}', 'App\Http\Controllers\eventController@update')->name('admin.event.update');
+    Route::delete('event/{id}', 'App\Http\Controllers\eventController@destroy')->name('admin.event.destroy');
 });
 
 Route::prefix('admin')->group(function() {

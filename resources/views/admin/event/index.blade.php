@@ -79,11 +79,11 @@
                                                     <td>{{ $item->Concert_Location }}</td>
                                                     <td>
                                                         <a href="{{ url('admin/event/'.$item->id.'/edit') }}" class="btn btn-success">Edit</a>
-                                                        {{-- <form action="{{ route('admin.event.destroy', ['id' => $item->id]) }}" method="POST" class="d-inline">
+                                                        <form action="{{ route('admin.event.destroy', ['id' => $item->id]) }}" method="POST" class="d-inline">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger">Delete</button>
-                                                        </form> --}}
+                                                        </form>
                                                     </td>
                                                 </tr>
                                                 @endforeach

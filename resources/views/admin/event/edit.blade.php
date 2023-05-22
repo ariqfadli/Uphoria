@@ -43,30 +43,30 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4>
-                                        Edit Customer
+                                        Edit Event
                                         <a href="{{ url('admin/event')}}" class="btn btn-primary float-end">Back</a>
                                     </h4>
                                 </div>
                                 <div class="card-body">
-                                    <form action="{{ route('admin.customer.update', ['id'=>$customer->id]) }}" method="POST">
+                                    <form action="{{ route('admin.event.update', ['id'=>$event->id]) }}" method="POST">
 
                                         @csrf
                                         @method('PUT')
                                         <div class="mb-3">
                                             <label>Concert_Name</label>
-                                            <input type="text" name="Concert_Name" value="{{ $customer->Concert_Name }}" class="form-control">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label>Concert_Date</label>
-                                            <input type="date" name="Consert_Date" value="{{ $customer->Consert_Date}}" class="form-control">
+                                            <input type="text" name="Concert_Name" value="{{ $event->Concert_Name }}" class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label>Rundown</label>
-                                            <input type="text" name="Rundown" value="{{ $customer->Rundown }}" class="form-control">
+                                            <input type="text" name="Rundown" value="{{ $event->Rundown }}" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>Concert_Date</label>
+                                            <input type="date" name="Consert_Date" value="{{ $event->Consert_Date}}" class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label>Concert_Location</label>
-                                            <input type="text" name="Concert_Location" value="{{ $customer->Concert_Location }}" class="form-control">
+                                            <input type="text" name="Concert_Location" value="{{ $event->Concert_Location }}" class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <button type="submit" class="btn btn-success">Update</button>

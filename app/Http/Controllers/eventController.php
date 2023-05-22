@@ -46,14 +46,22 @@ class eventController extends Controller
 
         $validatedData = $request->validate([
             'Concert_Name'=>'required|string|max:255',
-            'Concert_Date'=>'required|date|max:255',
+            'Concert_Date'=>'required|date',
             'Rundown'=>'required|string|max:255',
             'Concert_Location'=>'required|string|max:255',
         ]);
 
         $event->update($validatedData);
 
-        return redirect('admin/event')->with('message', 'Customer updated successfully!');
+        return redirect('admin/event')->with('message', 'Event updated successfully!');
+    }
+
+    public function destroy($id)
+    {
+        $event = event::findOrFail($id);
+        $event->delete();
+
+        return redirect('admin/event')->with('message', 'Event deleted successfully!');
     }
 
 
