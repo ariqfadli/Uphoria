@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,25 +13,22 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-//login & signup
-Route::get('/login ', function () {
-    return view ('login') ;
-});
 
-Route::get('/signup ', function () {
-    return view ('signup') ;
-});
-//homepage (before login)
 Route::get('/', function () {
-    return view ('index') ;
+    return view('index');
 });
 
-//user
-//homepage for user(after login)
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/home', function () {
-    return view ('admin/home') ;
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+require __DIR__.'/auth.php';
 
 //navigation bar
 Route::get('/logo', function () {
@@ -61,9 +59,9 @@ Route::get('/notification', function () {
     return view ('notification') ;
 });
 
-Route::get('/profile', function () {
-    return view ('profile') ;
-});
+// Route::get('/profile', function () {
+//     return view ('profile') ;
+// });
 
 //admin
 
@@ -97,21 +95,3 @@ Route::prefix('admin')->group(function() {
     Route::get('transaction/create', 'App\Http\Controllers\transactionController@create');
     Route::post('transaction', 'App\Http\Controllers\transactionController@store');
 });
-
-
-
-
-
-// Route::prefix('admin')->group(function() {
-//     Route::get('event', 'App\Http\Controllers\eventController@index');
-//     Route::get('event/create', 'App\Http\Controllers\eventController@create');
-//     Route::post('event', 'App\Http\Controllers\eventController@store');
-// });
-
-//home
-
-Route::get('/home_admin', function(){
-    return view('admin.home');
-});
-
-
