@@ -12,13 +12,14 @@ class customer extends Model
     protected $table = 'tbl_customer';
     
     protected $fillable =[
+        'id',
         'Name',
         'Contacts',
         'Address',
     ];
 
-    // public function transaction():HasMany
-    // {
-    //     return $this->hasMany(transaction::class);
-    // }
+    public function transaction():HasMany
+    {
+        return $this->hasMany(transaction::class);
+    }
 }

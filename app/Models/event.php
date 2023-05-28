@@ -12,6 +12,7 @@ class event extends Model
     protected $table = 'tbl_event';
    
     protected $fillable =[
+        'id',
         'Rundown',
         'Concert_Name',
         'Concert_Date',
