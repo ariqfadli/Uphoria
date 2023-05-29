@@ -52,15 +52,15 @@
                                         @csrf
                                         <div class="mb-3">
                                             <label>Name</label>
-                                            <input type="text" name="Name"class="form-control">
+                                            <input type="text" name="name"class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label>Contacts</label>
-                                            <input type="text" name="Contacts"class="form-control">
+                                            <input type="text" name="contacts"class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label>Address</label>
-                                            <input type="text" name="Address"class="form-control">
+                                            <input type="text" name="address"class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <button type="submit" class="btn btn-primary">Add</button>

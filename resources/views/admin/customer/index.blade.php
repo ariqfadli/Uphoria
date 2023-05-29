@@ -70,9 +70,9 @@
                                                 @foreach ($customer as $item)
                                                 <tr>
                                                     <td>{{ $item->id }}</td>
-                                                    <td>{{ $item->Name }}</td>
-                                                    <td>{{ $item->Contacts }}</td>
-                                                    <td>{{ $item->Address}}</td>
+                                                    <td>{{ $item->name }}</td>
+                                                    <td>{{ $item->contacts }}</td>
+                                                    <td>{{ $item->address}}</td>
                                                     <td>
                                                         <a href="{{ url('admin/customer/'.$item->id.'/edit') }}" class="btn btn-success">Edit</a>
                                                         <form action="{{ route('admin.customer.destroy', ['id' => $item->id]) }}" method="POST" class="d-inline">

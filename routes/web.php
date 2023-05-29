@@ -51,9 +51,9 @@ Route::get('/transaction', function () {
     return view ('transaction') ;
 });
 
-// Route::get('/order_history', function () {
-//     return view ('order_history') ;
-// });
+Route::get('/signup', function () {
+    return view ('signup') ;
+});
 
 Route::get('/notification', function () {
     return view ('notification') ;
@@ -88,6 +88,9 @@ Route::prefix('admin')->group(function() {
     Route::get('ticket', 'App\Http\Controllers\ticketController@index');
     Route::get('ticket/create', 'App\Http\Controllers\ticketController@create');
     Route::post('ticket', 'App\Http\Controllers\ticketController@store');
+    Route::get('ticket/{id}/edit', 'App\Http\Controllers\ticketController@edit')->name('admin.ticket.edit');
+    Route::put('ticket/{id}', 'App\Http\Controllers\ticketController@update')->name('admin.ticket.update');
+    Route::delete('ticket/{id}', 'App\Http\Controllers\ticketController@destroy')->name('admin.ticket.destroy');
 });
 
 Route::prefix('admin')->group(function() {

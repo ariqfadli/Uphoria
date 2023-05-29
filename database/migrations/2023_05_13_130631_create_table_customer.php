@@ -15,9 +15,9 @@ return new class extends Migration
 
         Schema::create('tbl_customer', function (Blueprint $table) {
             $table->id();
-            $table->String('Name', 50);
-            $table->String('Contacts', 50);
-            $table->String('Address', 100);
+            $table->String('name', 50);
+            $table->String('contacts', 50);
+            $table->String('address', 100);
             $table->timestamps();  
 
             

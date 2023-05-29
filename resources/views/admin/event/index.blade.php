@@ -61,8 +61,8 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Concert_Name</th>
-                                                    <th>Rundown</th>
                                                     <th>Concert_Date</th>
+                                                    <th>Rundown</th>
                                                     <th>Concert_Location</th>
                                                     <th>Action</th>
                                                     {{-- <th>Concert_Location</th> --}}
@@ -73,10 +73,10 @@
                                                 @foreach ($event as $item)
                                                 <tr>
                                                     <td>{{ $item->id }}</td>
-                                                    <td>{{ $item->Concert_Name }}</td>
-                                                    <td>{{ $item->Rundown }}</td>
-                                                    <td>{{ $item->Concert_Date }}</td>
-                                                    <td>{{ $item->Concert_Location }}</td>
+                                                    <td>{{ $item->concert_name }}</td>
+                                                    <td>{{ $item->concert_date }}</td>
+                                                    <td>{{ $item->rundown }}</td>
+                                                    <td>{{ $item->concert_location }}</td>
                                                     <td>
                                                         <a href="{{ url('admin/event/'.$item->id.'/edit') }}" class="btn btn-success">Edit</a>
                                                         <form action="{{ route('admin.event.destroy', ['id' => $item->id]) }}" method="POST" class="d-inline">

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -43,31 +44,46 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4>
-                                        Add Event
-                                        <a href="{{ url('admin/event') }}" class="btn btn-primary float-end">Back</a>
+                                        Edit Ticket
+                                        <a href="{{ url('admin/ticket') }}" class="btn btn-primary float-end">Back</a>
                                     </h4>
                                 </div>
                                 <div class="card-body">
-                                    <form action="{{ url('admin/event') }}" method="POST">
+                                    <form action="{{ route('admin.ticket.update', ['id'=>$ticket->id]) }}" method="POST">
                                         @csrf
+                                        @method('PUT')
                                         <div class="mb-3">
-                                            <label>Concert Name</label>
-                                            <input type="text" name="concert_name"class="form-control">
+                                            <label>Select Concert</label>
+                                            <select name="event_id" class="form-control">
+                                                @foreach ($event as $item)
+                                                    <option value="{{$item->id}} | {{ $item->concert_name }}" {{ $ticket->event_id == $item->id ? 'selected':'' }}>
+                                                        {{ $item->concert_name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <div class="mb-3">
-                                            <label>Concert_Date</label>
-                                            <input type="date" name="concert_date"class="form-control">
+                                            <label>CAT</label>
+                                            <input type="text" name="cat" value="{{ $ticket->cat }}" class="form-control">
                                         </div>
                                         <div class="mb-3">
-                                            <label>Rundown</label>
-                                            <input type="text" name="rundown"class="form-control">
+                                            <label>Seat</label>
+                                            <input type="text" name="seat" value="{{ $ticket->seat }}" class="form-control">
                                         </div>
                                         <div class="mb-3">
-                                            <label>Concert Location</label>
-                                            <input type="text" name="concert_location"class="form-control">
+                                            <label>Section</label>
+                                            <input type="text" name="section" value="{{ $ticket->section }}" class="form-control">
                                         </div>
                                         <div class="mb-3">
-                                            <button type="submit" class="btn btn-primary">Add</button>
+                                            <label>Ticket_price</label>
+                                            <input type="number" name="ticket_price" value="{{ $ticket->ticket_price }}" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>Row</label>
+                                            <input type="text" name="row" value="{{ $ticket->row }}" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <button type="submit" class="btn btn-primary">Update</button>
                                         </div>
                                     </form>
                                 </div>

@@ -13,9 +13,9 @@ class customer extends Model
     
     protected $fillable =[
         'id',
-        'Name',
-        'Contacts',
-        'Address',
+        'name',
+        'contacts',
+        'address',
     ];
 
     public function transaction():HasMany
