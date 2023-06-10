@@ -73,7 +73,7 @@
   --bs-border-radius-xl: 1rem;
   --bs-border-radius-2xl: 2rem;
   --bs-border-radius-pill: 50rem;
-  --bs-link-color: #1e30f3;
+  --bs-link-color: #000000;
   --bs-link-hover-color: #1826c2;
   --bs-code-color: #e21e80;
   --bs-highlight-bg: #fff3cd;
@@ -246,14 +246,13 @@ sup {
 
 a {
   color: var(--bs-link-color);
-  text-decoration: underline;
 }
 a:hover {
   color: var(--bs-link-hover-color);
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
-  color: inherit;
+  color: #000;
   text-decoration: none;
 }
 
@@ -3128,7 +3127,6 @@ textarea.form-control-lg {
   --bs-btn-disabled-border-color: transparent;
   --bs-btn-box-shadow: none;
   --bs-btn-focus-shadow-rgb: 64, 79, 245;
-  text-decoration: underline;
 }
 .btn-link:focus-visible {
   color: var(--bs-btn-color);
