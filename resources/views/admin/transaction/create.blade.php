@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Uphoria - Home</title>
+        <title>Uphoria - Transaction</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Custom Google font-->
@@ -27,10 +27,10 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="/ticket">Ticket</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/wishlist">Wishlist</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/notification">Notification</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/admin/customer">Customer</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/admin/transaction">Transaction</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/admin/ticket">Ticket</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/admin/event">Event/Concert</a></li>
                         </ul>
                     </div>
                 </div>
@@ -43,28 +43,46 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4>
-                                        Add Event
-                                        <a href="{{ url('admin/event') }}" class="btn btn-primary float-end">Back</a>
+                                        Add Transaction
+                                        <a href="{{ url('admin/transaction') }}" class="btn btn-primary float-end">Back</a>
                                     </h4>
                                 </div>
                                 <div class="card-body">
-                                    <form action="{{ url('admin/event') }}" method="POST">
+                                    <form action="{{ url('admin/transaction') }}" method="POST">
                                         @csrf
                                         <div class="mb-3">
-                                            <label>Concert Name</label>
-                                            <input type="text" name="Concert_Name"class="form-control">
+                                            <label>Select Customer</label>
+                                            <select name="customer_id" class="form-control">
+                                                @foreach ($customer as $item)
+                                                    <option value="{{$item->id}} | {{ $item->name }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <div class="mb-3">
-                                            <label>Concert_Date</label>
-                                            <input type="date" name="Concert_Date"class="form-control">
+                                            <label>Select Ticket</label>
+                                            <select name="ticket_id" class="form-control">
+                                                @foreach ($ticket as $item)
+                                                    <option value="{{$item->id}} | {{ $item->concert_name }}">{{ $item->concert_name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <div class="mb-3">
-                                            <label>Rundown</label>
-                                            <input type="text" name="Rundown"class="form-control">
+                                            <label>Payment Method</label>
+                                            <select name="payment_method" class="form-control">
+                                                <option> Gopay </option>
+                                                <option> Transfer Bank </option>
+                                            </select>
+                                            {{-- <input type="text" name="payment_method"class="form-control"> --}}
+                                            
+                                                
                                         </div>
                                         <div class="mb-3">
-                                            <label>Concert Location</label>
-                                            <input type="text" name="Concert_Location"class="form-control">
+                                            <label>Total Price</label>
+                                            <input type="number" name="total_price"class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>Transaction Date</label>
+                                            <input type="date" name="transaction_date"class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <button type="submit" class="btn btn-primary">Add</button>

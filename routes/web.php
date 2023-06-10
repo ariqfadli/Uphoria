@@ -81,7 +81,6 @@ Route::prefix('admin')->group(function() {
     Route::get('customer/{id}/edit', 'App\Http\Controllers\customerController@edit')->name('admin.customer.edit');
     Route::put('customer/{id}', 'App\Http\Controllers\customerController@update')->name('admin.customer.update');
     Route::delete('customer/{id}', 'App\Http\Controllers\customerController@destroy')->name('admin.customer.destroy');
-
 });
 
 Route::prefix('admin')->group(function() {
@@ -97,4 +96,7 @@ Route::prefix('admin')->group(function() {
     Route::get('transaction', 'App\Http\Controllers\transactionController@index');
     Route::get('transaction/create', 'App\Http\Controllers\transactionController@create');
     Route::post('transaction', 'App\Http\Controllers\transactionController@store');
+    Route::get('transaction/{id}/edit', 'App\Http\Controllers\transactionController@edit')->name('admin.transaction.edit');
+    Route::put('transaction/{id}', 'App\Http\Controllers\transactionController@update')->name('admin.transaction.update');
+    Route::delete('transaction/{id}', 'App\Http\Controllers\transactionController@destroy')->name('admin.transaction.destroy');
 });

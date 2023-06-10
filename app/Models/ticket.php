@@ -30,6 +30,11 @@ class ticket extends Model
         return $this->belongsTo(event::class, 'event_id', 'id');
     }
 
+    public function transaction()
+    {
+        return $this->hasOne(transaction::class, 'event_id', 'id');
+    }
+
 }
 
 
