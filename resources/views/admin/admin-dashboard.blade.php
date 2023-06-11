@@ -15,14 +15,14 @@
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
     </head>
     <body class="d-flex flex-column h-100">
         <main class="flex-shrink-0">
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
                 <div class="container px-5">
-                    <img class="profile-img" src="assets/uphoria.png" alt="..." />
+                    <img class="me-3 profile-img" src="../assets/uphoria.png" alt="..." width=30 height=60;/>
                     <a class="navbar-brand" href="/home"><span class="fw-bolder text-primary">Uphoria</span></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -31,6 +31,19 @@
                             <li class="nav-item"><a class="nav-link" href="/admin/transaction">Transaction</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin/ticket">Ticket</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin/event">Event/Concert</a></li>
+                            <nav id="navbar" class="navbar">
+                                <ul>
+                                  <li><form method="POST" action="{{ route('admin.logout') }}">
+                                    @csrf
+                        
+                                    <x-dropdown-link :href="route('admin.logout')"
+                                            onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </x-dropdown-link>
+                                    </form></li>
+                                </ul>
+                            </nav><!-- .navbar -->
                         </ul>
                     </div>
                 </div>
@@ -46,19 +59,12 @@
                                 <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">SBS MTV The Kpop Show Ticket  Package</span></h1>
                                 <div class="fs-3 fw-light text-muted">Look no further! Our SBS The Show tickets are the simplest way for you to experience a live Kpop recording.</div>
                                 <br>
-                                <div class="d-grid gap-4 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
-                                    <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="/ticket">Ticket</a>
-                                    <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="/concert">Concert</a>
-                                </div>
                             </div>
                         </div>
                         <div class="col-xxl-7">
                             <!-- Header profile picture-->
                             <div class="d-flex justify-content-center mt-5 mt-xxl-0">
-                                <div class="profile bg-gradient-primary-to-secondary">
-                                    <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
-                                    <!-- Watch a tutorial on how to do this on YouTube (link)-->
-                                    <img class="profile-img" src="assets/bts.jpg" alt="..." />
+                                <img class="profile-img" src="../assets/bts.jpg" alt="..."/>
                                    
                                 </div>
                             </div>
