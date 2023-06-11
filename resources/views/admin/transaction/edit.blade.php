@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,8 +23,8 @@
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
                 <div class="container px-5">
-                <img class="me-3 profile-img" src="../assets/uphoria.png" alt="..." />
-                    <a class="navbar-brand" href="/home"><span class="fw-bolder text-gradient">Uphoria</span></a>
+                {{-- <img class="profile-img" src="{{ asset('img/uphoria.png') }}" alt="..." /> --}}
+                    <a class="navbar-brand" href="/home"><span class="fw-bolder text-primary">Uphoria</span></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
@@ -43,18 +44,21 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4>
-                                        Add Transaction
+                                        Edit Transaction
                                         <a href="{{ url('admin/transaction') }}" class="btn btn-primary float-end">Back</a>
                                     </h4>
                                 </div>
                                 <div class="card-body">
-                                    <form action="{{ url('admin/transaction') }}" method="POST">
+                                    <form action="{{ route('admin.transaction.update', ['id'=>$transaction->id]) }}" method="POST">
                                         @csrf
+                                        @method('PUT')
                                         <div class="mb-3">
                                             <label>Select Customer</label>
                                             <select name="customer_id" class="form-control">
                                                 @foreach ($customer as $item)
-                                                    <option value="{{$item->id}} | {{ $item->name }}">{{ $item->name }}</option>
+                                                    <option value="{{$item->id}} | {{ $item->name }}" {{ $item->customer_id == $item->id ? 'selected':''  }}>
+                                                        {{ $item->name }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -62,28 +66,29 @@
                                             <label>Select Ticket</label>
                                             <select name="ticket_id" class="form-control">
                                                 @foreach ($ticket as $item)
-                                                    <option value="{{$item->id}} | {{ $item->concert_name }}">{{ $item->concert_name }}</option>
+                                                    <option value="{{$item->id}} | {{ $item->concert_name }}" {{ $item->ticket_id == $item->id ? 'selected':''  }}>
+                                                        {{ $item->concert_name }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>
                                         <div class="mb-3">
                                             <label>Payment Method</label>
-                                            <select name="payment_method" class="form-control">
+                                            <select name="payment_method" value="{{ $transaction->payment_method }}"class="form-control">
                                                 <option> Gopay </option>
                                                 <option> Transfer Bank </option>
                                             </select>
-                                            <!-- {{-- <input type="text" name="payment_method"class="form-control"> --}} -->  
                                         </div>
                                         <div class="mb-3">
                                             <label>Total Price</label>
-                                            <input type="number" name="total_price"class="form-control">
+                                            <input type="number" name="total_price" value="{{ $transaction->total_price }}" class="form-control">
                                         </div>
                                         <div class="mb-3">
-                                            <label>Transaction Date</label>
-                                            <input type="date" name="transaction_date"class="form-control">
+                                            <label>Transction Date</label>
+                                            <input type="date" name="transaction_date" value="{{ $transaction->transaction_date }}" class="form-control">
                                         </div>
                                         <div class="mb-3">
-                                            <button type="submit" class="btn btn-primary">Add</button>
+                                            <button type="submit" class="btn btn-primary">Update</button>
                                         </div>
                                     </form>
                                 </div>

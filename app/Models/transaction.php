@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class transaction extends Model
 {
@@ -17,9 +18,24 @@ class transaction extends Model
     protected $table = 'tbl_transaction';
 
     protected $fillable =[
-
+        'customer_id',
+        'ticket_id',
+        'name',
+        'concert_name',
         'payment_method',
-        'transaction_date',
         'total_price',
+        'transaction_date',
+
     ]; 
+
+    public function customer():BelongsTo
+    {
+        return $this->belongsTo(customer::class);
+    }
+
+    public function ticket():BelongsTo
+    {
+        return $this->belongsTo(ticket::class);
+    }
+    
 }

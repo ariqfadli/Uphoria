@@ -18,16 +18,25 @@ class ticket extends Model
     protected $fillable =[
         'event_id',
         'concert_name',
+        'concert_date',
+        'rundown',
+        'concert_location',
+        'price',
         'cat',
         'seat',
-        'section',
-        'ticket_price',
-        'row',
+        // 'section',
+        // 'ticket_price',
+        // 'row',
     ];
 
     public function event()
     {
         return $this->belongsTo(event::class, 'event_id', 'id');
+    }
+
+    public function transaction()
+    {
+        return $this->hasOne(transaction::class, 'event_id', 'id');
     }
 
 }

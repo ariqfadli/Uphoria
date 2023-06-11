@@ -63,8 +63,8 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4>
-                                        Event Detail
-                                        <a href="{{ url('admin/event/create') }}" class="btn btn-primary float-end">Add Event</a>
+                                        Transaction Detail
+                                        <a href="{{ url('admin/transaction/create') }}" class="btn btn-primary float-end">Add Transaction</a>
                                     </h4>
                                 </div>
                                 <div class="card-body">
@@ -73,25 +73,32 @@
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Concert_Name</th>
-                                                    <th>Rundown</th>
-                                                    <th>Concert_Date</th>
-                                                    <th>Concert_Location</th>
+                                                    <th>Customer</th>
+                                                    <th>Ticket Name</th>
+                                                    <th>Payment Method</th>
+                                                    <th>Total Price</th>
+                                                    <th>Transaction Date</th>
+                                                    
                                                     <th>Action</th>
-                                                    {{-- <th>Concert_Location</th> --}}
-                                                
+                                                    
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($event as $item)
+                                                @foreach ($transaction as $item)
                                                 <tr>
                                                     <td>{{ $item->id }}</td>
-                                                    <td>{{ $item->Concert_Name }}</td>
-                                                    <td>{{ $item->Rundown }}</td>
-                                                    <td>{{ $item->Concert_Date }}</td>
-                                                    <td>{{ $item->Concert_Location }}</td>
+                                                    <td>{{ $item->customer->name }}</td>
+                                                    <td>{{ $item->ticket->concert_name }}</td>
+                                                    <td>{{ $item->payment_method}}</td>
+                                                    <td>{{ $item->total_price}}</td>
+                                                    <td>{{ $item->transaction_date}}</td>
                                                     <td>
-                                                        Action
+                                                        <a href="{{ url('admin/transaction/'.$item->id.'/edit') }}" class="btn btn-success">Edit</a>
+                                                        <form action="{{ route('admin.transaction.destroy', ['id' => $item->id]) }}" method="POST" class="d-inline">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                        </form>
                                                     </td>
                                                 </tr>
                                                 @endforeach

@@ -5,13 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\ticket;
 use App\Models\event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ticketController extends Controller
 {
     public function index()
     {
         $ticket = ticket::all();
-        return view('admin.ticket.index', compact('ticket'));
+        $event = event::all(); 
+
+        if(Auth::guard('admin')->check()){
+            return view('admin.ticket.index', compact('ticket'));
+        }else{
+            return view ('ticket', compact('ticket', 'event'));
+        }
     }
 
     /**
@@ -32,15 +39,19 @@ class ticketController extends Controller
         $event = event::findOrFail($request->event_id);
 
         $ticket=ticket::create([
-            $event_explode = explode('|', strval($request->event_id)),
+            // $event_explode = explode('|', strval($request->event_id)),
             'id'=>$request->id,
-            'event_id'=>$event_explode[0],
-            'concert_name' => $event_explode[1],
+            'event_id'=>$request->event_id,
+            'concert_name' => $event->concert_name,
+            'concert_date' => $event->concert_date,
+            'rundown' => $event->rundown,
+            'concert_location' => $event->concert_location,
+            'price'=>$event->price,
             'cat'=>$request->cat,
             'seat'=>$request->seat,
-            'section'=>$request->section,
-            'ticket_price'=>$request->ticket_price,
-            'row' =>$request->row,
+            // 'section'=>$request->section,
+            
+            // 'row' =>$request->row,
         ]);
         // $ticket->event()->create([
         //     'concert_name' => $request->concert_name,
@@ -83,9 +94,9 @@ class ticketController extends Controller
         // $ticket->concert_name = $request->concert_name;
         $ticket->cat = $request->cat;
         $ticket->seat = $request->seat;
-        $ticket->section = $request->section;
-        $ticket->ticket_price = $request->ticket_price;
-        $ticket->row = $request->row;
+        // $ticket->section = $request->section;
+        // $ticket->ticket_price = $request->ticket_price;
+        // $ticket->row = $request->row;
 
         $ticket->save();
 

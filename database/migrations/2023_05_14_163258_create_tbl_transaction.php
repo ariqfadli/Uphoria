@@ -18,6 +18,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('ticket_id');
+            $table->String("name", 25);
+            $table->String("concert_name",25);
             $table->String("payment_method", 25);
             $table->integer("total_price");
             $table->date("transaction_date");
