@@ -60,10 +60,11 @@
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Concert_Name</th>
-                                                    <th>Concert_Date</th>
+                                                    <th>Concert Name</th>
+                                                    <th>Concert Date</th>
                                                     <th>Rundown</th>
-                                                    <th>Concert_Location</th>
+                                                    <th>Concert Location</th>
+                                                    <th>Ticket Price</th>
                                                     <th>Action</th>
                                                     {{-- <th>Concert_Location</th> --}}
                                                 
@@ -77,6 +78,7 @@
                                                     <td>{{ $item->concert_date }}</td>
                                                     <td>{{ $item->rundown }}</td>
                                                     <td>{{ $item->concert_location }}</td>
+                                                    <td>{{ $item->price }}</td>
                                                     <td>
                                                         <a href="{{ url('admin/event/'.$item->id.'/edit') }}" class="btn btn-success">Edit</a>
                                                         <form action="{{ route('admin.event.destroy', ['id' => $item->id]) }}" method="POST" class="d-inline">

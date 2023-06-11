@@ -55,11 +55,11 @@
                                             <label>Select Concert</label>
                                             <select name="event_id" class="form-control">
                                                 @foreach ($event as $item)
-                                                    <option value="{{$item->id}} | {{ $item->concert_name }}">{{ $item->concert_name }}</option>
+                                                    <option value="{{$item->id}}">{{ $item->concert_name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <div class="mb-3">
+                                        <!-- <div class="mb-3">
                                             <label>CAT</label>
                                             <input type="text" name="cat"class="form-control">
                                             {{-- <select name="ID_ticket" class="form-control">
@@ -76,19 +76,19 @@
                                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
                                             </select> --}}
+                                        </div> -->
+                                        <div class="mb-3">
+                                            <label>CAT</label>
+                                            <input type="text" name="cat"class="form-control">
                                         </div>
                                         <div class="mb-3">
-                                            <label>Section</label>
-                                            <input type="text" name="section"class="form-control">
+                                            <label>Seat</label>
+                                            <input type="text" name="seat"class="form-control">
                                         </div>
-                                        <div class="mb-3">
-                                            <label>Ticket_price</label>
-                                            <input type="number" name="ticket_price"class="form-control">
-                                        </div>
-                                        <div class="mb-3">
+                                        <!-- <div class="mb-3">
                                             <label>Row</label>
                                             <input type="text" name="row"class="form-control">
-                                        </div>
+                                        </div> -->
                                         <div class="mb-3">
                                             <button type="submit" class="btn btn-primary">Add</button>
                                         </div>

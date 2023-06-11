@@ -18,6 +18,7 @@ class event extends Model
         'concert_date',
         'rundown',
         'concert_location',
+        'price',
     ];
 
     public function ticket()

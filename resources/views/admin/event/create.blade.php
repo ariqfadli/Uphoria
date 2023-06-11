@@ -67,6 +67,10 @@
                                             <input type="text" name="concert_location"class="form-control">
                                         </div>
                                         <div class="mb-3">
+                                            <label>Ticket Price</label>
+                                            <input type="number" name="price"class="form-control">
+                                        </div>
+                                        <div class="mb-3">
                                             <button type="submit" class="btn btn-primary">Add</button>
                                         </div>
                                     </form>

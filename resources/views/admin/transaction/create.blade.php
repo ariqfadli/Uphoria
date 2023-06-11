@@ -72,9 +72,7 @@
                                                 <option> Gopay </option>
                                                 <option> Transfer Bank </option>
                                             </select>
-                                            {{-- <input type="text" name="payment_method"class="form-control"> --}}
-                                            
-                                                
+                                            <!-- {{-- <input type="text" name="payment_method"class="form-control"> --}} -->  
                                         </div>
                                         <div class="mb-3">
                                             <label>Total Price</label>

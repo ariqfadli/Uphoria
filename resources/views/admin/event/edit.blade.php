@@ -53,11 +53,11 @@
                                         @csrf
                                         @method('PUT')
                                         <div class="mb-3">
-                                            <label>Concert_Name</label>
+                                            <label>Concert Name</label>
                                             <input type="text" name="concert_name" value="{{ $event->concert_name }}" class="form-control">
                                         </div>
                                         <div class="mb-3">
-                                            <label>Concert_Date</label>
+                                            <label>Concert Date</label>
                                             <input type="date" name="consert_date" value="{{ $event->consert_date}}" class="form-control">
                                         </div>
                                         <div class="mb-3">
@@ -65,8 +65,12 @@
                                             <input type="text" name="rundown" value="{{ $event->rundown }}" class="form-control">
                                         </div>
                                         <div class="mb-3">
-                                            <label>Concert_Location</label>
+                                            <label>Concert Location</label>
                                             <input type="text" name="concert_location" value="{{ $event->concert_location }}" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>Ticket Price</label>
+                                            <input type="number" name="price" value="{{ $event->price }}" class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <button type="submit" class="btn btn-success">Update</button>
