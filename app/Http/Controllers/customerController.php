@@ -10,6 +10,29 @@ class customerController extends Controller
     public function index()
     {   
         $customer = customer::all();
+        // $data = '[
+        //     {
+        //       "id": 1,
+        //       "name": "John Doe",
+        //       "contacts": "08123456789",
+        //       "address": "Jl. Contoh Alamat 1"
+        //     },
+        //     {
+        //       "id": 2,
+        //       "name": "Jane Smith",
+        //       "contacts": "08234567890",
+        //       "address": "Jl. Contoh Alamat 2"
+        //     },
+        //     {
+        //       "id": 3,
+        //       "name": "David Johnson",
+        //       "contacts": "08345678901",
+        //       "address": "Jl. Contoh Alamat 3"
+        //     }
+        //   ]';
+
+        //   $customer = json_decode($data);
+        
         return view('admin.customer.index', compact('customer'));
     }
 
