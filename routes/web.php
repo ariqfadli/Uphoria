@@ -36,7 +36,11 @@ Route::get('/logo', function () {
 });
 
 Route::get('/ticket', function () {
-    return view ('ticket') ;
+    return view ('ticket');
+})->name('ticket');
+
+Route::get('/order', function () {
+    return view ('order') ;
 });
 
 Route::get('/new', function () {
@@ -53,7 +57,7 @@ Route::get('/blackpink', function () {
 
 Route::get('/myorder', function () {
     return view ('myorder') ;
-});
+})->name('myorder');
 
 Route::get('/signup', function () {
     return view ('signup') ;
@@ -61,7 +65,7 @@ Route::get('/signup', function () {
 
 Route::get('/notification', function () {
     return view ('notification') ;
-});
+})->name('notification');
 
 // Route::get('/profile', function () {
 //     return view ('profile') ;

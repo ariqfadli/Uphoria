@@ -23,7 +23,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
                 <div class="container px-5">
                     <img class="me-3 profile-img" src="assets/uphoria.png" alt="..." width=30 height=60;/>
-                    <a class="navbar-brand" href="/home"><span class="fw-bolder text-gradient">Uphoria</span></a>
+                    <a class="navbar-brand" href="/dashboard"><span class="fw-bolder text-gradient">Uphoria</span></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
@@ -47,8 +47,8 @@
                                 <div class="fs-3 fw-light text-muted">Look no further! Our SBS The Show tickets are the simplest way for you to experience a live Kpop recording.</div>
                                 <br>
                                 <div class="d-grid gap-4 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
-                                    <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="/ticket">Ticket</a>
-                                    <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="/concert">Concert</a>
+                                    <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="/ticket">Order Ticket</a>
+                                    <!-- <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="/concert">Concert</a> -->
                                 </div>
                             </div>
                         </div>
