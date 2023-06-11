@@ -54,19 +54,19 @@
                                         @method('PUT')
                                         <div class="mb-3">
                                             <label>Concert_Name</label>
-                                            <input type="text" name="Concert_Name" value="{{ $event->Concert_Name }}" class="form-control">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label>Rundown</label>
-                                            <input type="text" name="Rundown" value="{{ $event->Rundown }}" class="form-control">
+                                            <input type="text" name="concert_name" value="{{ $event->concert_name }}" class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label>Concert_Date</label>
-                                            <input type="date" name="Consert_Date" value="{{ $event->Consert_Date}}" class="form-control">
+                                            <input type="date" name="consert_date" value="{{ $event->consert_date}}" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>Rundown</label>
+                                            <input type="text" name="rundown" value="{{ $event->rundown }}" class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label>Concert_Location</label>
-                                            <input type="text" name="Concert_Location" value="{{ $event->Concert_Location }}" class="form-control">
+                                            <input type="text" name="concert_location" value="{{ $event->concert_location }}" class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <button type="submit" class="btn btn-success">Update</button>

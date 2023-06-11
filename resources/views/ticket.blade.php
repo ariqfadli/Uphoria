@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Uphoria - My Order</title>
+        <title>Uphoria - Ticket</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Custom Google font-->
@@ -23,7 +23,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
                 <div class="container px-5">
                 <img class="me-3 profile-img" src="assets/uphoria.png" alt="..." width=30 height=60;/>
-                    <a class="navbar-brand" href="/home"><span class="fw-bolder text-gradient">Uphoria</span></a>
+                    <a class="navbar-brand" href="/dashboard"><span class="fw-bolder text-gradient">Uphoria</span></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
@@ -46,7 +46,7 @@
                             <!-- Project Card 1-->
                             
                             <div class="card overflow-hidden shadow rounded-4 border-0 mb-5" >
-                            <a href="/blackpink">
+                            <a href="/order">
                                 <div class="card-body p-0" >
                                     <div class="d-flex align-items-center">
                                         <div class="p-5">
@@ -56,44 +56,53 @@
                                         <img class="profile-img" src="assets/bp.png" alt="..." />
                                     </div>
                                 </div>
-                                </a>
+                            </a>
                             </div>
                             
-                            <!-- Project Card 2-->
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                                <div class="card-body p-0">
+                            <!-- Project Card 1-->
+                            
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5" >
+                            <a href="/order">
+                                <div class="card-body p-0" >
                                     <div class="d-flex align-items-center">
                                         <div class="p-5">
-                                            <h2 class="fw-bolder" href=/tulus>Tulus Concert "Menjadi Manusia" 2023</h2>
+                                            <h2 class="fw-bolder" >Tulus Concert "Menjadi Manusia" 2023</h2>
                                             <p>We’ll get you directly seated and inside for you to enjoy the show.</p>
                                         </div>
-                                        <img class="profile-img" href="/tulus" src="assets/tls.jpeg" alt="..." width=300px height=300px;/>
+                                        <img class="profile-img" src="assets/tls.jpeg" alt="..." width=300px height=300px;/>
                                     </div>
                                 </div>
+                            </a>
                             </div>
                             <!-- Project Card 1-->
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                                <div class="card-body p-0">
+                            
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5" >
+                            <a href="/order">
+                                <div class="card-body p-0" >
                                     <div class="d-flex align-items-center">
                                         <div class="p-5">
-                                            <h2 class="fw-bolder">ArenaSZA - SOS Tour</h2>
+                                            <h2 class="fw-bolder" >ArenaSZA - SOS Tour</h2>
                                             <p>We’ll get you directly seated and inside for you to enjoy the show.</p>
                                         </div>
                                         <img class="profile-img" src="assets/sza.jpg" alt="..." width=300px height=300px;/>
                                     </div>
                                 </div>
+                            </a>
                             </div>
                             <!-- Project Card 1-->
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                                <div class="card-body p-0">
+                            
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5" >
+                            <a href="/order">
+                                <div class="card-body p-0" >
                                     <div class="d-flex align-items-center">
                                         <div class="p-5">
-                                            <h2 class="fw-bolder">Coldplay Music of The Spheres World Tour in Jakarta 2023</h2>
+                                            <h2 class="fw-bolder" >Coldplay Music of The Spheres World Tour in Jakarta 2023</h2>
                                             <p>We’ll get you directly seated and inside for you to enjoy the show.</p>
                                         </div>
                                         <img class="profile-img" src="assets/cp.jpg" alt="..." width=300px height=300px;/>
                                     </div>
                                 </div>
+                            </a>
                             </div>
                         </div>
                     </div>

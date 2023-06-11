@@ -73,7 +73,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>ID_Ticket</th>
-                                                    <th>ID_Event</th>
+                                                    <th>Concert_Name</th>
                                                     <th>CAT</th>
                                                     <th>Seat</th>
                                                     <th>Section</th>
@@ -88,14 +88,19 @@
                                                 @foreach ($ticket as $item)
                                                 <tr>
                                                     <td>{{ $item->id }}</td>
-                                                    <td>{{ $item->event->Concert_Name }}</td>
-                                                    <td>{{ $item->CAT }}</td>
-                                                    <td>{{ $item->Seat }}</td>
-                                                    <td>{{ $item->Section }}</td>
-                                                    <td>{{ $item->Ticket_Price }}</td>
-                                                    <td>{{ $item->Row }}</td>
+                                                    <td>{{ $item->event->concert_name }}</td>
+                                                    <td>{{ $item->cat }}</td>
+                                                    <td>{{ $item->seat }}</td>
+                                                    <td>{{ $item->section }}</td>
+                                                    <td>{{ $item->ticket_price }}</td>
+                                                    <td>{{ $item->row }}</td>
                                                     <td>
-                                                        <a href= "{{ url('admin// ') }}" class="btn btn-success"></a>
+                                                        <a href="{{ url('admin/ticket/'.$item->id.'/edit') }}" class="btn btn-success">Edit</a>
+                                                        <form action="{{ route('admin.ticket.destroy', ['id' => $item->id]) }}" method="POST" class="d-inline">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                        </form>
                                                     </td>
                                                 </tr>
                                                 @endforeach

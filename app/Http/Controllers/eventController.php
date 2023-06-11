@@ -23,11 +23,11 @@ class eventController extends Controller
     
     public function store(Request $request)
     {
-        Event::create([
-            'Concert_Name' => $request->Concert_Name,
-            'Concert_Date' => $request->Concert_Date,
-            'Rundown' => $request->Rundown,
-            'Concert_Location' => $request->Concert_Location,
+        event::create([
+            'concert_name' => $request->concert_name,
+            'concert_date' => $request->concert_date,
+            'rundown' => $request->rundown,
+            'concert_location' => $request->concert_location,
         ]);
     
         return redirect('admin/event')->with('message', 'Event Added');
@@ -45,10 +45,10 @@ class eventController extends Controller
         $event = event::findOrFail($id);
 
         $validatedData = $request->validate([
-            'Concert_Name'=>'required|string|max:255',
-            'Concert_Date'=>'required|date',
-            'Rundown'=>'required|string|max:255',
-            'Concert_Location'=>'required|string|max:255',
+            'concert_name'=>'required|string|max:255',
+            'concert_date'=>'required|date',
+            'rundown'=>'required|string|max:255',
+            'concert_location'=>'required|string|max:255',
         ]);
 
         $event->update($validatedData);

@@ -52,19 +52,19 @@
                                         @csrf
                                         <div class="mb-3">
                                             <label>Concert Name</label>
-                                            <input type="text" name="Concert_Name"class="form-control">
+                                            <input type="text" name="concert_name"class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label>Concert_Date</label>
-                                            <input type="date" name="Concert_Date"class="form-control">
+                                            <input type="date" name="concert_date"class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label>Rundown</label>
-                                            <input type="text" name="Rundown"class="form-control">
+                                            <input type="text" name="rundown"class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label>Concert Location</label>
-                                            <input type="text" name="Concert_Location"class="form-control">
+                                            <input type="text" name="concert_location"class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <button type="submit" class="btn btn-primary">Add</button>

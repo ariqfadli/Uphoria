@@ -13,19 +13,21 @@ class ticket extends Model
     use HasFactory;
     protected $table = 'tbl_ticket';
 
+    protected $primaryKey = 'id';
+
     protected $fillable =[
-        'ID_event',
-        'Concert_Name',
-        'CAT',
-        'Seat',
-        'Section',
-        'Ticket_Price',
-        'Row',
+        'event_id',
+        'concert_name',
+        'cat',
+        'seat',
+        'section',
+        'ticket_price',
+        'row',
     ];
 
     public function event()
     {
-        return $this->belongsTo(event::class, 'ID_ticket', 'id');
+        return $this->belongsTo(event::class, 'event_id', 'id');
     }
 
 }

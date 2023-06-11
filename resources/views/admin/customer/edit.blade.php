@@ -54,15 +54,15 @@
                                         @method('PUT')
                                         <div class="mb-3">
                                             <label>Name</label>
-                                            <input type="text" name="Name" value="{{ $customer->Name }}" class="form-control">
+                                            <input type="text" name="name" value="{{ $customer->name }}" class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label>Contacts</label>
-                                            <input type="text" name="Contacts" value="{{ $customer->Contacts }}" class="form-control">
+                                            <input type="text" name="contacts" value="{{ $customer->contacts }}" class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label>Address</label>
-                                            <input type="text" name="Address" value="{{ $customer->Address }}" class="form-control">
+                                            <input type="text" name="address" value="{{ $customer->address }}" class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <button type="submit" class="btn btn-success">Update</button>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Uphoria - Event</title>
+        <title>Uphoria - Home</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Custom Google font-->
@@ -22,8 +23,8 @@
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
                 <div class="container px-5">
-                <img class="me-3 profile-img" src="../assets/uphoria.png" alt="..." />
-                    <a class="navbar-brand" href="/home"><span class="fw-bolder text-gradient">Uphoria</span></a>
+                {{-- <img class="profile-img" src="{{ asset('img/uphoria.png') }}" alt="..." /> --}}
+                    <a class="navbar-brand" href="/home"><span class="fw-bolder text-primary">Uphoria</span></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
@@ -31,21 +32,6 @@
                             <li class="nav-item"><a class="nav-link" href="/admin/transaction">Transaction</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin/ticket">Ticket</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin/event">Event/Concert</a></li>
-                            {{-- <li class="nav-item"><a class="nav-link" href="/notification">Notification</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li> --}}
-                            <nav id="navbar" class="navbar">
-                                <ul>
-                                  <li><form method="POST" action="{{ route('admin.logout') }}">
-                                    @csrf
-                        
-                                    <x-dropdown-link :href="route('admin.logout')"
-                                            onclick="event.preventDefault();
-                                                        this.closest('form').submit();">
-                                        {{ __('Log Out') }}
-                                    </x-dropdown-link>
-                                    </form></li>
-                                </ul>
-                            </nav><!-- .navbar -->
                         </ul>
                     </div>
                 </div>
@@ -55,60 +41,51 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-
-                            @if (session('message'))
-                                <div class="alert alert-success">{{ session('message') }}</div>
-                            @endif
-
                             <div class="card">
                                 <div class="card-header">
                                     <h4>
-                                        Event Detail
-                                        <a href="{{ url('admin/event/create') }}" class="btn btn-primary float-end">Add Event</a>
+                                        Edit Ticket
+                                        <a href="{{ url('admin/ticket') }}" class="btn btn-primary float-end">Back</a>
                                     </h4>
                                 </div>
                                 <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Concert_Name</th>
-                                                    <th>Concert_Date</th>
-                                                    <th>Rundown</th>
-                                                    <th>Concert_Location</th>
-                                                    <th>Action</th>
-                                                    {{-- <th>Concert_Location</th> --}}
-                                                
-                                                </tr>
-                                            </thead>
-                                            <tbody>
+                                    <form action="{{ route('admin.ticket.update', ['id'=>$ticket->id]) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="mb-3">
+                                            <label>Select Concert</label>
+                                            <select name="event_id" class="form-control">
                                                 @foreach ($event as $item)
-                                                <tr>
-                                                    <td>{{ $item->id }}</td>
-                                                    <td>{{ $item->concert_name }}</td>
-                                                    <td>{{ $item->concert_date }}</td>
-                                                    <td>{{ $item->rundown }}</td>
-                                                    <td>{{ $item->concert_location }}</td>
-                                                    <td>
-                                                        <a href="{{ url('admin/event/'.$item->id.'/edit') }}" class="btn btn-success">Edit</a>
-                                                        <form action="{{ route('admin.event.destroy', ['id' => $item->id]) }}" method="POST" class="d-inline">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                                        </form>
-                                                    </td>
-                                                </tr>
+                                                    <option value="{{$item->id}} | {{ $item->concert_name }}" {{ $ticket->event_id == $item->id ? 'selected':'' }}>
+                                                        {{ $item->concert_name }}
+                                                    </option>
                                                 @endforeach
-                                            </tbody>
-
-                                        </table>
-                                    </div>
-                                    <br>
-                                        {{-- <div class="mb-3">
-                                            <button type="submit" class="btn btn-primary">Edit</button>
-                                        </div> --}}
-                                    
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>CAT</label>
+                                            <input type="text" name="cat" value="{{ $ticket->cat }}" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>Seat</label>
+                                            <input type="text" name="seat" value="{{ $ticket->seat }}" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>Section</label>
+                                            <input type="text" name="section" value="{{ $ticket->section }}" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>Ticket_price</label>
+                                            <input type="number" name="ticket_price" value="{{ $ticket->ticket_price }}" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>Row</label>
+                                            <input type="text" name="row" value="{{ $ticket->row }}" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <button type="submit" class="btn btn-primary">Update</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

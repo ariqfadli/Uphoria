@@ -15,10 +15,10 @@ return new class extends Migration
 
         Schema::create('tbl_event', function (Blueprint $table) {
             $table->id();
-            $table->String("Rundown");
-            $table->String("Concert_Name");
-            $table->date("Concert_Date");
-            $table->String("Concert_Location");
+            $table->String("concert_name");
+            $table->date("concert_date");
+            $table->String("rundown");
+            $table->String("concert_location");
             $table->timestamps();  
         });
     }

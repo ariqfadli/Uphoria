@@ -27,9 +27,9 @@ class customerController extends Controller
     public function store(Request $request)
     {
         customer::create([
-            'Name'=> $request->Name,
-            'Contacts'=>$request->Contacts,
-            'Address'=>$request->Address,
+            'name'=> $request->name,
+            'contacts'=>$request->contacts,
+            'address'=>$request->address,
         ]);
 
         return redirect('admin/customer')->with('message', 'Customer added!');
@@ -61,9 +61,9 @@ class customerController extends Controller
         $customer = customer::findOrFail($id);
 
         $validatedData = $request->validate([
-            'Name'=>'required|string|max:255',
-            'Contacts'=>'required|string|max:255',
-            'Address'=>'required|string|max:255',
+            'name'=>'required|string|max:255',
+            'contacts'=>'required|string|max:255',
+            'address'=>'required|string|max:255',
         ]);
 
         $customer->update($validatedData);

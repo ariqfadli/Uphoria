@@ -17,10 +17,9 @@ class transaction extends Model
     protected $table = 'tbl_transaction';
 
     protected $fillable =[
-        'ID_ticket',
-        'ID_customer',
-        'Payment_Method',
-        'Transaction_date',
-        'Total_Price',
+
+        'payment_method',
+        'transaction_date',
+        'total_price',
     ]; 
 }

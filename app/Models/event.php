@@ -10,16 +10,18 @@ class event extends Model
 {
     use HasFactory;
     protected $table = 'tbl_event';
+
+    protected $primaryKey = 'id';
    
     protected $fillable =[
-        'Rundown',
-        'Concert_Name',
-        'Concert_Date',
-        'Concert_Location',
+        'concert_name',
+        'concert_date',
+        'rundown',
+        'concert_location',
     ];
 
     public function ticket()
     {
-        return $this->hasMany(ticket::class, 'event_id', 'id');
+        return $this->hasMany(ticket::class,'ticket_id', 'id');
     }
 }

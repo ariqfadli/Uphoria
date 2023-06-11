@@ -23,7 +23,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
                 <div class="container px-5">
                 <img class="profile-img" src="assets/uphoria.png" alt="..." />
-                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Uphoria</span></a>
+                    <a class="navbar-brand" href="/index"><span class="fw-bolder text-primary">Uphoria</span></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
@@ -76,10 +76,10 @@
                                     <!-- an error submitting the form-->
                                     <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                                     <!-- Submit Button-->
-                                    <div class="d-grid"><button class="btn btn-primary btn-lg" href="home"><a class="nav-link" href="/home">Log In</a></button></div>
+                                    <div class="d-grid"><button class="btn btn-primary btn-lg" href="dashboard"><a class="nav-link" href="/home">Log In</a></button></div>
                                     <!-- <li class="text-right"><a class="nav-link" href="/home">Log In</a></li> -->
                                     <br>
-                                    <div class="d-grid"><button class="btn btn-primary btn-lg" href="home"><a class="nav-link" href="/signup">Sign Up</a></button></div>
+                                    <div class="d-grid"><button class="btn btn-primary btn-lg" href="dashboard"><a class="nav-link" href="/signup">Sign Up</a></button></div>
                                     {{-- <class="text-left"><a class="nav-link" href="/signup">Sign Up</a>< --}}
                                 </form>
                             </div>
