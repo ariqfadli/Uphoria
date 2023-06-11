@@ -17,11 +17,14 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger("event_id");
             $table->String("concert_name");
+            $table->date("concert_date");
+            $table->String("rundown");
+            $table->String("concert_location");
+            $table->integer("price");
             $table->String("cat",20);
             $table->String("seat", 20);
-            $table->String("section", 30);
-            $table->integer("ticket_price");
-            $table->String("row", 10);
+            // $table->String("section", 30);
+            // $table->String("row", 10);
             $table->foreign('event_id')->references('id')->on('tbl_event')->onDelete('cascade');
             $table->timestamps();  
             

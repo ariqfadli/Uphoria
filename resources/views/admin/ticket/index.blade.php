@@ -63,9 +63,9 @@
                                                     <th>Concert_Name</th>
                                                     <th>CAT</th>
                                                     <th>Seat</th>
-                                                    <th>Section</th>
+                                                    <!-- <th>Section</th>
                                                     <th>Ticket Price</th>
-                                                    <th>Row</th>
+                                                    <th>Row</th> -->
                                                     <th>Action</th>
                                                     {{-- <th>Concert_Location</th> --}}
                                                 
@@ -78,9 +78,9 @@
                                                     <td>{{ $item->event->concert_name }}</td>
                                                     <td>{{ $item->cat }}</td>
                                                     <td>{{ $item->seat }}</td>
-                                                    <td>{{ $item->section }}</td>
-                                                    <td>{{ $item->ticket_price }}</td>
-                                                    <td>{{ $item->row }}</td>
+                                                    <!-- <td>{{ $item->section }}</td>
+                                                    <td>{{ $item->ticket_price }}</td> -->
+                                                    <!-- <td>{{ $item->row }}</td> -->
                                                     <td>
                                                         <a href="{{ url('admin/ticket/'.$item->id.'/edit') }}" class="btn btn-success">Edit</a>
                                                         <form action="{{ route('admin.ticket.destroy', ['id' => $item->id]) }}" method="POST" class="d-inline">

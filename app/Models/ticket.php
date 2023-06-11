@@ -18,11 +18,15 @@ class ticket extends Model
     protected $fillable =[
         'event_id',
         'concert_name',
+        'concert_date',
+        'rundown',
+        'concert_location',
+        'price',
         'cat',
         'seat',
-        'section',
-        'ticket_price',
-        'row',
+        // 'section',
+        // 'ticket_price',
+        // 'row',
     ];
 
     public function event()

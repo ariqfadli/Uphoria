@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date("concert_date");
             $table->String("rundown");
             $table->String("concert_location");
+            $table->integer("price");
             $table->timestamps();  
         });
     }

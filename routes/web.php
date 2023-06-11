@@ -35,9 +35,10 @@ Route::get('/logo', function () {
     return view ('home') ;
 });
 
-Route::get('/ticket', function () {
-    return view ('ticket') ;
-});
+Route::get('/ticket', 'App\Http\Controllers\ticketController@index');
+// Route::get('/ticket', function () {
+//     return view ('ticket') ;
+// });
 
 Route::get('/concert', function () {
     return view ('concert') ;

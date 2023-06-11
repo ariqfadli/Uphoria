@@ -70,7 +70,7 @@
                                             <label>Seat</label>
                                             <input type="text" name="seat" value="{{ $ticket->seat }}" class="form-control">
                                         </div>
-                                        <div class="mb-3">
+                                        <!-- <div class="mb-3">
                                             <label>Section</label>
                                             <input type="text" name="section" value="{{ $ticket->section }}" class="form-control">
                                         </div>
@@ -81,7 +81,7 @@
                                         <div class="mb-3">
                                             <label>Row</label>
                                             <input type="text" name="row" value="{{ $ticket->row }}" class="form-control">
-                                        </div>
+                                        </div> -->
                                         <div class="mb-3">
                                             <button type="submit" class="btn btn-primary">Update</button>
                                         </div>

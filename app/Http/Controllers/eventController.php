@@ -28,6 +28,7 @@ class eventController extends Controller
             'concert_date' => $request->concert_date,
             'rundown' => $request->rundown,
             'concert_location' => $request->concert_location,
+            'price' => $request->price,
         ]);
     
         return redirect('admin/event')->with('message', 'Event Added');
@@ -49,6 +50,7 @@ class eventController extends Controller
             'concert_date'=>'required|date',
             'rundown'=>'required|string|max:255',
             'concert_location'=>'required|string|max:255',
+            'ticket_price'=>'required|integer|max:255',
         ]);
 
         $event->update($validatedData);
