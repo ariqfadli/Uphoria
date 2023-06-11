@@ -52,20 +52,28 @@ Route::get('/logo', function () {
 });
 
 Route::get('/ticket', function () {
-    return view ('ticket') ;
+    return view ('ticket');
+})->name('ticket');
+
+Route::get('/order', function () {
+    return view ('order') ;
+});
+
+Route::get('/new', function () {
+    return view ('new') ;
 });
 
 Route::get('/concert', function () {
     return view ('concert') ;
 });
 
-Route::get('/wishlist', function () {
-    return view ('wishlist') ;
+Route::get('/blackpink', function () {
+    return view ('blackpink') ;
 });
 
-Route::get('/transaction', function () {
-    return view ('transaction') ;
-});
+Route::get('/myorder', function () {
+    return view ('myorder') ;
+})->name('myorder');
 
 Route::get('/signup', function () {
     return view ('signup') ;
@@ -73,7 +81,7 @@ Route::get('/signup', function () {
 
 Route::get('/notification', function () {
     return view ('notification') ;
-});
+})->name('notification');
 
 // Route::get('/profile', function () {
 //     return view ('profile') ;
