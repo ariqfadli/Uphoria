@@ -18,7 +18,7 @@ class transaction extends Model
     protected $table = 'tbl_transaction';
 
     protected $fillable =[
-        'customer_id',
+        'user_id',
         'ticket_id',
         'name',
         'concert_name',
@@ -28,9 +28,9 @@ class transaction extends Model
 
     ]; 
 
-    public function customer():BelongsTo
+    public function user():BelongsTo
     {
-        return $this->belongsTo(customer::class);
+        return $this->belongsTo(user::class);
     }
 
     public function ticket():BelongsTo

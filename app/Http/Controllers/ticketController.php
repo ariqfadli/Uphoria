@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ticket;
 use App\Models\event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ticketController extends Controller
 {
@@ -12,6 +13,8 @@ class ticketController extends Controller
     {
         $ticket = ticket::all();
         $event = event::all(); 
+
+        // return view('admin.ticket.index', compact('ticket'));
 
         if(auth()->user()->is_admin == 1){
             return view('admin.ticket.index', compact('ticket'));
@@ -35,32 +38,24 @@ class ticketController extends Controller
      */
     public function store(Request $request)
     {
-        $event = event::findOrFail($request->event_id);
-
-        $ticket=ticket::create([
-            // $event_explode = explode('|', strval($request->event_id)),
-            'id'=>$request->id,
-            'event_id'=>$request->event_id,
+        // Retrieve the event based on the event_id
+        $event = Event::findOrFail($request->event_id); 
+        // Create a new ticket record and assign the image paths
+        $ticket = Ticket::create([
+            'event_id' => $request->event_id,
             'concert_name' => $event->concert_name,
             'concert_date' => $event->concert_date,
             'rundown' => $event->rundown,
             'concert_location' => $event->concert_location,
-            'price'=>$event->price,
-            'cat'=>$request->cat,
-            'seat'=>$request->seat,
-            // 'section'=>$request->section,
-            
-            // 'row' =>$request->row,
+            'price' => $event->price,
+            'cat' => $request->cat,
+            'seat' => $request->seat,
+            // 'images' => $imagePaths,
         ]);
-        // $ticket->event()->create([
-        //     'concert_name' => $request->concert_name,
-        //     // 'Concert_Date' => $request->Concert_Date,
-        //     // 'Concert_Location' => $request->Concert_Location,
-        // ]);
-
+    
         return redirect('admin/ticket')->with('message', 'Ticket added!');
     }
-
+    
     /**
      * Display the specified resource.
      */

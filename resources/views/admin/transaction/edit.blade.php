@@ -28,7 +28,7 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="/admin/customer">Customer</a></li>
+                            {{-- <li class="nav-item"><a class="nav-link" href="/admin/customer">Customer</a></li> --}}
                             <li class="nav-item"><a class="nav-link" href="/admin/transaction">Transaction</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin/ticket">Ticket</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin/event">Event/Concert</a></li>
@@ -53,10 +53,10 @@
                                         @csrf
                                         @method('PUT')
                                         <div class="mb-3">
-                                            <label>Select Customer</label>
-                                            <select name="customer_id" class="form-control">
-                                                @foreach ($customer as $item)
-                                                    <option value="{{$item->id}} | {{ $item->name }}" {{ $item->customer_id == $item->id ? 'selected':''  }}>
+                                            <label>User</label>
+                                            <select name="user_id" class="form-control">
+                                                @foreach ($user as $item)
+                                                    <option value="{{$item->id}} | {{ $item->name }}" {{ $item->user_id == $item->id ? 'selected':''  }}>
                                                         {{ $item->name }}
                                                     </option>
                                                 @endforeach

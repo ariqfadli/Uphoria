@@ -39,7 +39,13 @@ Route::get('/logo', function () {
     return view ('home') ;
 });
 
+
+
 Route::get('/ticket', 'App\Http\Controllers\ticketController@index');
+
+Route::get('/myorder', 'App\Http\Controllers\transactionController@index');
+
+Route::get('/notification', 'App\Http\Controllers\notificationController@index');
 // Route::get('/ticket', function () {
 //     return view ('ticket') ;
 // });
@@ -60,16 +66,25 @@ Route::get('/signup', function () {
     return view ('signup') ;
 });
 
-Route::get('/notification', function () {
-    return view ('notification') ;
-});
+// Route::get('/notification', function () {
+//     return view ('notification') ;
+// });
 
+// Route::get('/myorder', function () {
+//     return view ('myorder');
+// });
+
+Route::get('/order', 'App\Http\Controllers\orderController@create');
+Route::post('/order', 'App\Http\Controllers\orderController@store');
 // Route::get('/profile', function () {
 //     return view ('profile') ;
 // });
 
 //admin
 
+// Route::prefix('admin')->group(function() {
+//     Route::get('event', 'App\Http\Controllers\eventController@index');
+// });
 Route::prefix('admin')->group(function() {
     Route::get('event', 'App\Http\Controllers\eventController@index');
     Route::get('event/create', 'App\Http\Controllers\eventController@create');
@@ -105,3 +120,4 @@ Route::prefix('admin')->group(function() {
     Route::put('transaction/{id}', 'App\Http\Controllers\transactionController@update')->name('admin.transaction.update');
     Route::delete('transaction/{id}', 'App\Http\Controllers\transactionController@destroy')->name('admin.transaction.destroy');
 });
+

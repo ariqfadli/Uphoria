@@ -15,9 +15,11 @@ return new class extends Migration
 
         Schema::create('tbl_customer', function (Blueprint $table) {
             $table->id();
-            $table->String('name', 50);
-            $table->String('contacts', 50);
-            $table->String('address', 100);
+            $table->unsignedBigInteger("user_id");
+            $table->String('name');
+            $table->String('contacts');
+            $table->String('address');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();  
 
             

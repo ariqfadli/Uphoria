@@ -27,7 +27,7 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="/admin/customer">Customer</a></li>
+                            {{-- <li class="nav-item"><a class="nav-link" href="/admin/customer">Customer</a></li> --}}
                             <li class="nav-item"><a class="nav-link" href="/admin/transaction">Transaction</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin/ticket">Ticket</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin">Event/Concert</a></li>
@@ -60,7 +60,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Customer</th>
+                                                    <th>User</th>
                                                     <th>Ticket Name</th>
                                                     <th>Payment Method</th>
                                                     <th>Total Price</th>
@@ -74,7 +74,7 @@
                                                 @foreach ($transaction as $item)
                                                 <tr>
                                                     <td>{{ $item->id }}</td>
-                                                    <td>{{ $item->customer->name }}</td>
+                                                    <td>{{ $item->user ? $item->user->name : 'N/A' }}</td>
                                                     <td>{{ $item->ticket->concert_name }}</td>
                                                     <td>{{ $item->payment_method}}</td>
                                                     <td>{{ $item->total_price}}</td>

@@ -13,7 +13,12 @@ class eventController extends Controller
     public function index()
     {
         $event = event::all();
-        return view('admin.event.index', compact('event'));
+        if(auth()->user()->is_admin == 1){
+            return view('admin.event.index', compact('event'));
+        }else{
+            return view ('ticket', compact('ticket', 'event'));
+        }
+        // return view('admin.event.index', compact('event'));
     }
     
     public function create()
@@ -50,7 +55,7 @@ class eventController extends Controller
             'concert_date'=>'required|date',
             'rundown'=>'required|string|max:255',
             'concert_location'=>'required|string|max:255',
-            'ticket_price'=>'required|integer|max:255',
+            'price'=>'required|integer',
         ]);
 
         $event->update($validatedData);

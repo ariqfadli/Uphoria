@@ -51,8 +51,12 @@
                                     <form action="{{ url('admin/customer') }}" method="POST">
                                         @csrf
                                         <div class="mb-3">
-                                            <label>Name</label>
-                                            <input type="text" name="name"class="form-control">
+                                            <label>Select Concert</label>
+                                            <select name="user_id" class="form-control">
+                                                @foreach ($user as $item)
+                                                    <option value="{{$item->id}}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <div class="mb-3">
                                             <label>Contacts</label>

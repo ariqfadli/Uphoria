@@ -24,6 +24,7 @@ class ticket extends Model
         'price',
         'cat',
         'seat',
+        // 'image',
         // 'section',
         // 'ticket_price',
         // 'row',

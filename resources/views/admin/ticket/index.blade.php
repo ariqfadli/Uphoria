@@ -27,7 +27,7 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="/admin/customer">Customer</a></li>
+                            {{-- <li class="nav-item"><a class="nav-link" href="/admin/customer">Customer</a></li> --}}
                             <li class="nav-item"><a class="nav-link" href="/admin/transaction">Transaction</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin/ticket">Ticket</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin/event">Event/Concert</a></li>
@@ -63,6 +63,7 @@
                                                     <th>Concert_Name</th>
                                                     <th>CAT</th>
                                                     <th>Seat</th>
+                                                    {{-- <th>Poster</th> --}}
                                                     <!-- <th>Section</th>
                                                     <th>Ticket Price</th>
                                                     <th>Row</th> -->
@@ -78,9 +79,14 @@
                                                     <td>{{ $item->event->concert_name }}</td>
                                                     <td>{{ $item->cat }}</td>
                                                     <td>{{ $item->seat }}</td>
-                                                    <!-- <td>{{ $item->section }}</td>
+                                                    {{-- <td>
+                                                        @if (!empty($item->image))
+                                                            <img class="img-thumbnail" src="{{ asset('assets/img/uploads/' . $item->image) }}" alt="Image">
+                                                        @endif
+                                                    </td> --}}
+                                                    {{-- <!-- <td>{{ $item->section }}</td>
                                                     <td>{{ $item->ticket_price }}</td> -->
-                                                    <!-- <td>{{ $item->row }}</td> -->
+                                                    <!-- <td>{{ $item->row }}</td> --> --}}
                                                     <td>
                                                         <a href="{{ url('admin/ticket/'.$item->id.'/edit') }}" class="btn btn-success">Edit</a>
                                                         <form action="{{ route('admin.ticket.destroy', ['id' => $item->id]) }}" method="POST" class="d-inline">
