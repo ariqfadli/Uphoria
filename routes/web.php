@@ -55,16 +55,20 @@ Route::get('/ticket', function () {
     return view ('ticket') ;
 });
 
+Route::get('/new', function () {
+    return view ('new') ;
+});
+
 Route::get('/concert', function () {
     return view ('concert') ;
 });
 
-Route::get('/wishlist', function () {
-    return view ('wishlist') ;
+Route::get('/blackpink', function () {
+    return view ('blackpink') ;
 });
 
-Route::get('/transaction', function () {
-    return view ('transaction') ;
+Route::get('/myorder', function () {
+    return view ('myorder') ;
 });
 
 // Route::get('/order_history', function () {
