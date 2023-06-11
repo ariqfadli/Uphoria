@@ -22,8 +22,8 @@
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
                 <div class="container px-5">
-                <img class="me-3 profile-img" src="assets/uphoria.png" alt="..." width=30 height=60;/>
-                    <a class="navbar-brand" href="/home"><span class="fw-bolder text-gradient">Uphoria</span></a>
+                {{-- <img class="me-3 profile-img" src="assets/uphoria.png" alt="..." width=30 height=60;/> --}}
+                    <a class="navbar-brand" href="/dashboard"><span class="fw-bolder text-gradient">Uphoria</span></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
@@ -54,18 +54,26 @@
                                 </a>
                             </div>
                              <!-- Project Card 1-->
+                             @foreach ($transaction as $item)
                              <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
                                 <div class="card-body p-0">
                                     <div class="d-flex align-items-center">
                                         <div class="p-5">
-                                            <h2 class="fw-bolder">ArenaSZA - SOS Tour</h2>
-                                            <p>Rp 2.000.000</p>
-                                            <p>15 Juni 2025</p>
+                                            <h2 class="text-gradient d-inline">{{ $item->concert_name }}</h2>
+                                            <br>
+                                            <br>
+                                            <h4 class="fw-bolder">Payment Method : </h4>
+                                            <p>{{ $item->payment_method }}</p>
+                                            <h5 class="fw-bolder">Transaction Date : </h5>
+                                            <p>{{ $item->transaction_date }}</p>
+                                            <h5 class="fw-bolder">Total Price :</h5>
+                                            <h5 style="position: absolute;"><span class="text-gradient d-inline"> {{ 'Rp. '.number_format($item->total_price, 0, ',', '.'); }}</h5>
                                         </div>
-                                        <img class="profile-img ms-auto me-5" src="assets/sza.jpg" alt="..." width="150px" height="150px";/>
+                                        {{-- <img class="profile-img ms-auto me-5" src="assets/sza.jpg" alt="..." width="150px" height="150px";/> --}}
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
         <!-- Footer-->
         <footer class="bg-white py-4 mt-auto">
             <div class="container px-5">

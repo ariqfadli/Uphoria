@@ -20,7 +20,7 @@
     <!-- Navigation-->
                 <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
                 <div class="container px-5">
-                    <img class="me-3 profile-img" src="assets/uphoria.png" alt="..." width=30 height=60;/>
+                    {{-- <img class="me-3 profile-img" src="assets/uphoria.png" alt="..." width=30 height=60;/> --}}
                     <a class="navbar-brand" href="/dashboard"><span class="fw-bolder text-gradient">Uphoria</span></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -35,46 +35,44 @@
             </nav>
     <div class="mb-5 container p-0 mt-5">
         <!-- form pay -->
-        <form method="" action="/myorder">
-            <div class="card px-4">
-                <label class="h8 text-gradient py-3">Payment Details</label>
-                <div class="row gx-3">
-                    <div class="col-12">
-                        <div class="d-flex flex-column">
-                            <label class="text mb-1">Person Name</label>
-                            <input class="form-control mb-3" type="text" required placeholder="Name" value="">
-                            <!-- <x-input-error :messages="$errors->get('name')" class="mt-2" /> -->
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="d-flex flex-column">
-                            <label class="text mb-1">Card Number</label>
-                            <input class="form-control mb-3" type="text" required placeholder="1234 5678 435678">
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="d-flex flex-column">
-                            <label class="text mb-1">Username</label>
-                            <input class="form-control mb-3" type="text" required placeholder="Username">
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="d-flex flex-column">
-                            <label class="text mb-1">Password</label>
-                            <input class="form-control mb-3 pt-2 " type="password" required placeholder="***">
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <!-- <div class="btn btn-primary mb-3">
-                        <span class="text-center">Pay</span>
-                        <a class="nav-link" href="/myorder">Pay</a>
-                            <span class="fas fa-arrow-right"></span>
-                        </div> -->
-                        <button type="submit" class="btn btn-primary mb-3" href="/myorder">Pay</button>
-                    </div>
+            <form action="{{ url('/order') }}" method="POST">
+                @csrf
+                <div class="mb-3">
+                    <label>User</label>
+                    <select name="user_id" class="form-control">
+                        @foreach ($user as $item)
+                            <option value="{{$item->id}} | {{ $item->name }}">{{ $item->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
-            </div>
-        </form>
+                <div class="mb-3">
+                    <label>Select Ticket</label>
+                    <select name="ticket_id" class="form-control">
+                        @foreach ($ticket as $item)
+                            <option value="{{$item->id}} | {{ $item->concert_name }}">{{ $item->concert_name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label>Payment Method</label>
+                    <select name="payment_method" class="form-control">
+                        <option> Gopay </option>
+                        <option> Transfer Bank </option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label>Total Price</label>
+                    <input type="number" name="total_price"class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label>Transaction Date</label>
+                    <input type="date" name="transaction_date"class="form-control">
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+
         <!-- end form pay -->
     </div>
 

@@ -264,6 +264,11 @@ samp {
   font-size: 1em;
 }
 
+/* .x-dropdown .x-dropdown-link::after {
+    display: none;
+}
+ */
+
 pre {
   display: block;
   margin-top: 0;

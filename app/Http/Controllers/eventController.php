@@ -7,13 +7,19 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class eventController extends Controller
 {
     public function index()
     {
         $event = event::all();
-        return view('admin.event.index', compact('event'));
+        if(Auth::guard('admin')->check()){
+            return view('admin.event.index', compact('event'));
+        }else{
+            return view ('event', compact('event'));
+        }
+        // return view('admin.event.index', compact('event'));
     }
     
     public function create()
@@ -50,7 +56,7 @@ class eventController extends Controller
             'concert_date'=>'required|date',
             'rundown'=>'required|string|max:255',
             'concert_location'=>'required|string|max:255',
-            'ticket_price'=>'required|integer|max:255',
+            'price'=>'required|integer',
         ]);
 
         $event->update($validatedData);

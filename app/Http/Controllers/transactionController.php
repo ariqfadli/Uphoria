@@ -5,14 +5,24 @@ namespace App\Http\Controllers;
 use App\Models\transaction;
 use App\Models\ticket;
 use App\Models\customer;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class transactionController extends Controller
 {
+    
     public function index()
     {
+        $user = User::all();
         $transaction = transaction::all();
-        return view('admin.transaction.index', compact('transaction'));
+        // return view('admin.transaction.index', compact('transaction'));
+
+        if(Auth::guard('admin')->check()){
+            return view('admin.transaction.index', compact('transaction', 'user'));
+        }else{
+            return view ('myorder', compact('transaction', 'user'));
+        }
     }
 
     /**
@@ -21,8 +31,8 @@ class transactionController extends Controller
     public function create()
     {   
         $ticket = ticket::all();
-        $customer = customer::all();
-        return view('admin.transaction.create', compact('ticket','customer'));
+        $user = User::all();
+        return view('admin.transaction.create', compact('ticket','user'));
     }
 
     /**
@@ -31,16 +41,16 @@ class transactionController extends Controller
     public function store(Request $request)
     {
         $ticket = ticket::findOrFail($request->ticket_id);
-        $customer = ticket::findOrFail($request->customer_id);
+        $user = User::findOrFail($request->user_id);
+        $ticket_explode = explode('|', strval($request->ticket_id));
+        $user_explode = explode('|', strval($request->user_id));
         
         $transaction=transaction::create([
-            $ticket_explode = explode('|', strval($request->ticket_id)),
-            $customer_explode = explode('|', strval($request->customer_id)),
             'id'=>$request->id,
             'ticket_id'=>$ticket_explode[0],
             'concert_name' => $ticket_explode[1],
-            'customer_id'=>$customer_explode[0],
-            'name' => $customer_explode[1],
+            'user_id'=>$user_explode[0],
+            'name' => $user_explode[1],
             'payment_method'=>$request->payment_method,
             'total_price'=>$request->total_price,
             'transaction_date'=>$request->transaction_date,
@@ -62,10 +72,10 @@ class transactionController extends Controller
      */
     public function edit(string $id)
     {
-        $customer = customer::all();
+        $user = user::all();
         $ticket = ticket::all();
         $transaction = transaction::findOrFail($id);
-        return view('admin.transaction.edit', compact('customer', 'ticket', 'transaction')); 
+        return view('admin.transaction.edit', compact('user', 'ticket', 'transaction')); 
     }
 
     /**
@@ -75,9 +85,9 @@ class transactionController extends Controller
     {
         $transaction = Transaction::findOrFail($transaction_id);
 
-        $customer_explode = explode('|', strval($request->customer_id));
-        $transaction->customer_id = $customer_explode[0];
-        $transaction->name = $customer_explode[1];
+        $user_explode = explode('|', strval($request->user_id));
+        $transaction->user_id = $user_explode[0];
+        $transaction->name = $user_explode[1];
 
         $ticket_explode = explode('|', strval($request->ticket_id));
         $transaction->ticket_id = $ticket_explode[0];

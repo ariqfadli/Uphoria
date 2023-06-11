@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Uphoria - Ticket</title>
+        <title>Uphoria - Transaction</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Custom Google font-->
@@ -22,7 +22,6 @@
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
                 <div class="container px-5">
-                <img class="me-3 profile-img" src="assets/uphoria.png" alt="..." width=30 height=60;/>
                     <a class="navbar-brand" href="/dashboard"><span class="fw-bolder text-gradient">Uphoria</span></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -43,78 +42,60 @@
                     </div>
                     <div class="row gx-5 justify-content-center">
                         <div class="col-lg-11 col-xl-9 col-xxl-8">
-                            <!-- Project Card 1-->
-                            
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5" >
-                            <a href="/order">
-                                <div class="card-body p-0" >
+                        @foreach ($ticket as $item)
+                        <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                                <div class="card-body p-0">
                                     <div class="d-flex align-items-center">
                                         <div class="p-5">
-                                            <h2 class="fw-bolder" >BLACKPINK WORLD TOUR [BORN PINK] JAKARTA</h2>
-                                            <p>We’ll get you directly seated and inside for you to enjoy the show.</p>
+                                            <h2 class="text-gradient d-inline">{{ $item->concert_name }}</h2>
+                                            <br>
+                                            <br>
+                                            <h4 class="fw-bolder">Live at : </h4>
+                                            <p>{{ $item->concert_location }}</p>
+                                            <h5 class="fw-bolder">Date : </h5>
+                                            <p>{{ $item->concert_date }}</p>
+                                            <h5 class="fw-bolder">Price :</h5>
+                                            <h5 style="position: absolute;"><span class="text-gradient d-inline"> {{ 'Rp. '.number_format($item->price, 0, ',', '.'); }}</h5>
+                                            <br>
+                                            <br>
+                                            <a href="{{ url('/order') }}" class="btn btn-success">Order Now</a>
                                         </div>
-                                        <img class="profile-img" src="assets/bp.png" alt="..." />
+                                        {{-- @if (!empty($item->images))
+                                        <div class="images-container">
+                                            @foreach (json_decode($item->images) as $image)
+                                                <img class="img-fluid" src="{{ asset('assets/img/uploads/' . $image) }}" alt="Image">
+                                            @endforeach
+                                        </div>
+                                        @endif --}}
                                     </div>
                                 </div>
-                            </a>
                             </div>
-                            
-                            <!-- Project Card 1-->
-                            
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5" >
-                            <a href="/order">
-                                <div class="card-body p-0" >
-                                    <div class="d-flex align-items-center">
-                                        <div class="p-5">
-                                            <h2 class="fw-bolder" >Tulus Concert "Menjadi Manusia" 2023</h2>
-                                            <p>We’ll get you directly seated and inside for you to enjoy the show.</p>
-                                        </div>
-                                        <img class="profile-img" src="assets/tls.jpeg" alt="..." width=300px height=300px;/>
-                                    </div>
-                                </div>
-                            </a>
-                            </div>
-                            <!-- Project Card 1-->
-                            
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5" >
-                            <a href="/order">
-                                <div class="card-body p-0" >
-                                    <div class="d-flex align-items-center">
-                                        <div class="p-5">
-                                            <h2 class="fw-bolder" >ArenaSZA - SOS Tour</h2>
-                                            <p>We’ll get you directly seated and inside for you to enjoy the show.</p>
-                                        </div>
-                                        <img class="profile-img" src="assets/sza.jpg" alt="..." width=300px height=300px;/>
-                                    </div>
-                                </div>
-                            </a>
-                            </div>
-                            <!-- Project Card 1-->
-                            
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5" >
-                            <a href="/order">
-                                <div class="card-body p-0" >
-                                    <div class="d-flex align-items-center">
-                                        <div class="p-5">
-                                            <h2 class="fw-bolder" >Coldplay Music of The Spheres World Tour in Jakarta 2023</h2>
-                                            <p>We’ll get you directly seated and inside for you to enjoy the show.</p>
-                                        </div>
-                                        <img class="profile-img" src="assets/cp.jpg" alt="..." width=300px height=300px;/>
-                                    </div>
-                                </div>
-                            </a>
-                            </div>
-                        
+                        @endforeach
                         </div>
                     </div>
                 </div>
             </section>
+            <!-- Call to action section-->
+            <section class="py-5 bg-gradient-primary-to-secondary text-white">
+                <div class="container px-5 my-5">
+                    <div class="text-center">
+                        <h2 class="display-4 fw-bolder mb-4">Let's build an entire euphoria </h2>
+                        <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="contact.html">Contact me</a>
+                    </div>
+                </div>
+            </section>
+        </main>
         <!-- Footer-->
         <footer class="bg-white py-4 mt-auto">
             <div class="container px-5">
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                     <div class="col-auto"><div class="small m-0">Copyright &copy; Your Website 2023</div></div>
                     <div class="col-auto">
+                        <a class="small" href="#!">Privacy</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="#!">Terms</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="#!">Contact</a>
                     </div>
                 </div>
             </div>

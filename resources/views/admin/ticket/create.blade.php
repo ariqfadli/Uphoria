@@ -28,7 +28,7 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="/admin/customer">Customer</a></li>
+                            {{-- <li class="nav-item"><a class="nav-link" href="/admin/customer">Customer</a></li> --}}
                             <li class="nav-item"><a class="nav-link" href="/admin/transaction">Transaction</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin/ticket">Ticket</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin/event">Event/Concert</a></li>
@@ -49,7 +49,7 @@
                                     </h4>
                                 </div>
                                 <div class="card-body">
-                                    <form action="{{ url('admin/ticket') }}" method="POST">
+                                    <form action="{{ url('admin/ticket') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="mb-3">
                                             <label>Select Concert</label>
@@ -59,24 +59,6 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <!-- <div class="mb-3">
-                                            <label>CAT</label>
-                                            <input type="text" name="cat"class="form-control">
-                                            {{-- <select name="ID_ticket" class="form-control">
-                                                @foreach ($event as $item)
-                                                    <option value=" ">{{ $item->name }}</option>
-                                                @endforeach
-                                            </select> --}}
-                                        </div>
-                                        <div class="mb-3">
-                                            <label>Seat</label>
-                                            <input type="text" name="seat"class="form-control">
-                                            {{-- <select name="ID_ticket" class="form-control">
-                                                @foreach ($event as $item)
-                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                @endforeach
-                                            </select> --}}
-                                        </div> -->
                                         <div class="mb-3">
                                             <label>CAT</label>
                                             <input type="text" name="cat"class="form-control">
@@ -85,10 +67,10 @@
                                             <label>Seat</label>
                                             <input type="text" name="seat"class="form-control">
                                         </div>
-                                        <!-- <div class="mb-3">
-                                            <label>Row</label>
-                                            <input type="text" name="row"class="form-control">
-                                        </div> -->
+                                        {{-- <div class="mb-3">
+                                            <label for="images">Choose images:</label>
+                                            <input type="file" name="images[]" id="images" accept="image/*" multiple>
+                                        </div>  --}}
                                         <div class="mb-3">
                                             <button type="submit" class="btn btn-primary">Add</button>
                                         </div>

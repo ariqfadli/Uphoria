@@ -36,12 +36,13 @@
                 </div>
             </nav>
 <div class="row notification-container">
-<h2 class="mt-5 mb-5 text-center text-gradient d-inline">My Notifications</h2>
+<h2 class="mt-5 mb-5 text-center text-gradient d-inline"><b>My Notifications</b></h2>\
+@foreach ($transaction as $item)
   <div class="card notification-card notification-invitation">
     <div class="card-body">
       <table>
         <tr>
-          <td style="width:70%"><div class="card-title">Ticket payment <b>"BLACKPINK WORLD TOUR [BORN PINK] JAKARTA"</b> is successful</div></td>
+          <td style="width:70%"><div class="card-title">Ticket payment {{ $item->concert_name }} is successful at {{ $item->transaction_date }}</div></td>
           <td style="width:30%">
    
           </td>
@@ -49,8 +50,9 @@
       </table>
     </div>
   </div>
+@endforeach
   
-  <div class="card notification-card notification-warning">
+  {{-- <div class="card notification-card notification-warning">
     <div class="card-body">
        <table>
         <tr>
@@ -87,7 +89,7 @@
         </tr>
       </table>
     </div>
-  </div>
+  </div> --}}
   
   
 </div>

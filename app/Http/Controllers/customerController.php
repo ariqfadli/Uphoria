@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\customer;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class customerController extends Controller
@@ -10,30 +11,8 @@ class customerController extends Controller
     public function index()
     {   
         $customer = customer::all();
-        // $data = '[
-        //     {
-        //       "id": 1,
-        //       "name": "John Doe",
-        //       "contacts": "08123456789",
-        //       "address": "Jl. Contoh Alamat 1"
-        //     },
-        //     {
-        //       "id": 2,
-        //       "name": "Jane Smith",
-        //       "contacts": "08234567890",
-        //       "address": "Jl. Contoh Alamat 2"
-        //     },
-        //     {
-        //       "id": 3,
-        //       "name": "David Johnson",
-        //       "contacts": "08345678901",
-        //       "address": "Jl. Contoh Alamat 3"
-        //     }
-        //   ]';
-
-        //   $customer = json_decode($data);
-        
-        return view('admin.customer.index', compact('customer'));
+        $user = User::all();
+        return view('admin.customer.index', compact('customer', 'user'));
     }
 
     /**
@@ -41,7 +20,8 @@ class customerController extends Controller
      */
     public function create()
     {
-        return view('admin.customer.create');
+        $user = User::all();
+        return view('admin.customer.create', compact('user'));
     }
 
     /**
@@ -49,8 +29,12 @@ class customerController extends Controller
      */
     public function store(Request $request)
     {
+        $user = User::findOrFail($request->user_id);
+
         customer::create([
-            'name'=> $request->name,
+            'id'=>$request->id,
+            'user_id'=>$request->user_id,
+            'name'=> $user->name,
             'contacts'=>$request->contacts,
             'address'=>$request->address,
         ]);
@@ -72,8 +56,9 @@ class customerController extends Controller
     public function edit($id)
     {
         // return $customer;
+        $user = user::all();
         $customer=customer::findOrFail($id);
-        return view('admin.customer.edit', compact('customer'));
+        return view('admin.customer.edit', compact('user','customer'));
     }
 
     /**
@@ -83,13 +68,14 @@ class customerController extends Controller
     {
         $customer = customer::findOrFail($id);
 
-        $validatedData = $request->validate([
-            'name'=>'required|string|max:255',
-            'contacts'=>'required|string|max:255',
-            'address'=>'required|string|max:255',
-        ]);
+        $user_explode = explode('|', strval($request->user_id));
+        $customer->user_id = $user_explode[0];
+        $customer->name = $user_explode[1];
+        
+        $customer->contacts = $request->contacts;
+        $customer->address = $request->address;
 
-        $customer->update($validatedData);
+        $customer->save();
 
         return redirect('admin/customer')->with('message', 'Customer updated successfully!');
     }
