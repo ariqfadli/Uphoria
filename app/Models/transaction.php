@@ -37,5 +37,4 @@ class transaction extends Model
     {
         return $this->belongsTo(ticket::class);
     }
-    
 }

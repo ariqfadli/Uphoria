@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,22 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+/* ----------------------- Admin Route ----------------------- */
 
+Route::prefix('admin')->group(function (){
+
+    Route::get('/login', [AdminController::class, 'Index'])->name('login_form');
+    Route::post('/login/admin', [AdminController::class, 'Login'])->name('admin.login');
+    Route::get('/dashboard', [AdminController::class, 'Dashboard'])->name('admin.dashboard')->middleware('admin');
+    
+    Route::post('/logout', [AdminController::class, 'destroy'])
+                ->name('admin.logout');
+});
+
+// Route::get('admin', function () { return view('admin.admin-dashboard'); })->middleware('checkRole:admin');
+
+
+/* ----------------------- End Admin Route ----------------------- */
 Route::get('/', function () {
     return view('index');
 });
@@ -39,28 +55,21 @@ Route::get('/logo', function () {
     return view ('home') ;
 });
 
-
-
-Route::get('/ticket', 'App\Http\Controllers\ticketController@index');
-
-Route::get('/myorder', 'App\Http\Controllers\transactionController@index');
-
-Route::get('/notification', 'App\Http\Controllers\notificationController@index');
 // Route::get('/ticket', function () {
 //     return view ('ticket') ;
 // });
 
-Route::get('/concert', function () {
-    return view ('concert') ;
-});
+// Route::get('/concert', function () {
+//     return view ('concert') ;
+// });
 
-Route::get('/wishlist', function () {
-    return view ('wishlist') ;
-});
+// Route::get('/blackpink', function () {
+//     return view ('blackpink') ;
+// });
 
-Route::get('/transaction', function () {
-    return view ('transaction') ;
-});
+// Route::get('/myorder', function () {
+//     return view ('myorder') ;
+// })->name('myorder');
 
 Route::get('/signup', function () {
     return view ('signup') ;
@@ -70,12 +79,14 @@ Route::get('/signup', function () {
 //     return view ('notification') ;
 // });
 
-// Route::get('/myorder', function () {
-//     return view ('myorder');
-// });
-
-Route::get('/order', 'App\Http\Controllers\orderController@create');
+Route::get('/order', 'App\Http\Controllers\orderController@create')->middleware(['auth', 'verified'])->name('order');
 Route::post('/order', 'App\Http\Controllers\orderController@store');
+
+Route::get('/ticket', 'App\Http\Controllers\userticketController@index')->middleware(['auth', 'verified'])->name('ticket');
+
+Route::get('/myorder', 'App\Http\Controllers\transactionController@index')->middleware(['auth', 'verified'])->name('myorder');
+
+Route::get('/notification', 'App\Http\Controllers\notificationController@index')->middleware(['auth', 'verified'])->name('notification');
 // Route::get('/profile', function () {
 //     return view ('profile') ;
 // });

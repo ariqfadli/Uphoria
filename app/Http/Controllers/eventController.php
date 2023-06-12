@@ -7,16 +7,17 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class eventController extends Controller
 {
     public function index()
     {
         $event = event::all();
-        if(auth()->user()->is_admin == 1){
+        if(Auth::guard('admin')->check()){
             return view('admin.event.index', compact('event'));
         }else{
-            return view ('ticket', compact('ticket', 'event'));
+            return view ('event', compact('event'));
         }
         // return view('admin.event.index', compact('event'));
     }

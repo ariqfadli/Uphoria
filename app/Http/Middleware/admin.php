@@ -4,9 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class admin
+class Admin
 {
     /**
      * Handle an incoming request.
@@ -15,9 +16,11 @@ class admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!auth()-> check || !auth()->user()->is_admin){
-            abort(403);
+        if(!Auth::guard('admin')->check()){
+            return redirect()->route('login_form')->with('error', 'Please login first');
         }
+        
+        
         return $next($request);
     }
 }

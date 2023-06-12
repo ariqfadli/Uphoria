@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Uphoria - Home</title>
+        <title>Uphoria - Dashboard</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Custom Google font-->
@@ -31,6 +31,19 @@
                             <li class="nav-item"><a class="nav-link" href="/myorder">My Order</a></li>
                             <li class="nav-item"><a class="nav-link" href="/notification">Notification</a></li>
                             <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+                            <nav id="navbar" class="navbar">
+                                <ul>
+                                  <li><form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                        
+                                    <x-dropdown-link :href="route('logout')"
+                                            onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </x-dropdown-link>
+                                </form></li>
+                                </ul>
+                              </nav><!-- .navbar -->
                         </ul>
                     </div>
                 </div>

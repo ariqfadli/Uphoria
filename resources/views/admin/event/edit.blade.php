@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Uphoria - Edit Event</title>
+        <title>Admin - Edit Event</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Custom Google font-->
@@ -22,8 +22,8 @@
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
                 <div class="container px-5">
-                {{-- <img class="profile-img" src="{{ asset('img/uphoria.png') }}" alt="..." /> --}}
-                    <a class="navbar-brand" href="/home"><span class="fw-bolder text-primary">Uphoria</span></a>
+                    <img class="me-3 profile-img" src="../assets/uphoria.png" alt="..." width=30 height=60;/>
+                    <a class="navbar-brand" href="/home"><span class="fw-bolder text-gradient">Uphoria</span></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
@@ -31,6 +31,19 @@
                             <li class="nav-item"><a class="nav-link" href="/admin/transaction">Transaction</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin/ticket">Ticket</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin/event">Event/Concert</a></li>
+                            <nav id="navbar" class="navbar">
+                                <ul>
+                                  <li><form method="POST" action="{{ route('admin.logout') }}">
+                                    @csrf
+                        
+                                    <x-dropdown-link :href="route('admin.logout')"
+                                            onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </x-dropdown-link>
+                                    </form></li>
+                                </ul>
+                            </nav><!-- .navbar -->
                         </ul>
                     </div>
                 </div>
@@ -58,7 +71,11 @@
                                         </div>
                                         <div class="mb-3">
                                             <label>Concert Date</label>
+<<<<<<< HEAD
+                                            <input type="date" name="consert_date" value="{{ $event->consert_date}}" class="form-control">
+=======
                                             <input type="date" name="concert_date" value="{{ $event->concert_date}}" class="form-control">
+>>>>>>> 08c747986c59c3643c461439df1eb7404da8673f
                                         </div>
                                         <div class="mb-3">
                                             <label>Rundown</label>

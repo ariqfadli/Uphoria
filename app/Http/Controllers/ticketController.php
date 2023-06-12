@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\ticket;
 use App\Models\event;
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 
+=======
+use Illuminate\Support\Facades\Auth;
+>>>>>>> d2a1a6372bc86afe1f5d1d631f551a21eddaf08f
 
 class ticketController extends Controller
 {
@@ -14,13 +18,12 @@ class ticketController extends Controller
         $ticket = ticket::all();
         $event = event::all(); 
 
-        // return view('admin.ticket.index', compact('ticket'));
-
-        if(auth()->user()->is_admin == 1){
+        if(Auth::guard('admin')->check()){
             return view('admin.ticket.index', compact('ticket'));
-        }else{
-            return view ('ticket', compact('ticket', 'event'));
         }
+        // else{
+        //     return view ('ticket', compact('ticket', 'event'));
+        // }
     }
 
     /**

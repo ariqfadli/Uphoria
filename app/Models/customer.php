@@ -28,6 +28,6 @@ class customer extends Model
 
     public function user():BelongsTo
     {
-        return $this->belongsTo(user::class);
+        return $this->hasMany(transaction::class);
     }
 }

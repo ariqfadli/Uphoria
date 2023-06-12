@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Uphoria - Transaction</title>
+        <title>Uphoria - Ticket</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Custom Google font-->
@@ -22,6 +22,7 @@
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
                 <div class="container px-5">
+                    <img class="me-3 profile-img" src="assets/uphoria.png" alt="..." width=30 height=60;/>
                     <a class="navbar-brand" href="/dashboard"><span class="fw-bolder text-gradient">Uphoria</span></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -30,6 +31,19 @@
                             <li class="nav-item"><a class="nav-link" href="/myorder">My Order</a></li>
                             <li class="nav-item"><a class="nav-link" href="/notification">Notification</a></li>
                             <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+                            <nav id="navbar" class="navbar">
+                                <ul>
+                                  <li><form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                        
+                                    <x-dropdown-link :href="route('logout')"
+                                            onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </x-dropdown-link>
+                                </form></li>
+                                </ul>
+                              </nav><!-- .navbar -->
                         </ul>
                     </div>
                 </div>
@@ -54,7 +68,11 @@
                                             <h5 class="fw-bolder">Date : </h5>
                                             <p>{{ $item->concert_date }}</p>
                                             <h5 class="fw-bolder">CAT & Seat : </h5>
+<<<<<<< HEAD
                                             <p>{{ $item->cat}}  ,  {{ $item->seat}}</p>
+=======
+                                            <p>{{ $item->cat }} & {{ $item->seat }} </p>
+>>>>>>> d2a1a6372bc86afe1f5d1d631f551a21eddaf08f
                                             <h5 class="fw-bolder">Price :</h5>
                                             <h5 style="position: absolute;"><span class="text-gradient d-inline"> {{ 'Rp. '.number_format($item->price, 0, ',', '.'); }}</h5>
                                             <br>
@@ -80,8 +98,13 @@
             <section class="py-5 bg-gradient-primary-to-secondary text-white">
                 <div class="container px-5 my-5">
                     <div class="text-center">
+<<<<<<< HEAD
                         <h2 class="display-4 fw-bolder mb-4">Let's build an euphoria in Uphoria </h2>
                         <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="/ticket">Let's find out!</a>
+=======
+                        <h2 class="display-4 fw-bolder mb-4">Let's build an euphoria in Uphoria</h2>
+                        <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="ticket">Buy Now</a>
+>>>>>>> d2a1a6372bc86afe1f5d1d631f551a21eddaf08f
                     </div>
                 </div>
             </section>

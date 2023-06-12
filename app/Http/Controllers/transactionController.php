@@ -7,6 +7,7 @@ use App\Models\ticket;
 use App\Models\customer;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class transactionController extends Controller
 {
@@ -17,7 +18,7 @@ class transactionController extends Controller
         $transaction = transaction::all();
         // return view('admin.transaction.index', compact('transaction'));
 
-        if(auth()->user()->is_admin == 1){
+        if(Auth::guard('admin')->check()){
             return view('admin.transaction.index', compact('transaction', 'user'));
         }else{
             return view ('myorder', compact('transaction', 'user'));
