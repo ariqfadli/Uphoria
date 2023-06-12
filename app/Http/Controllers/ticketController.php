@@ -16,9 +16,10 @@ class ticketController extends Controller
 
         if(Auth::guard('admin')->check()){
             return view('admin.ticket.index', compact('ticket'));
-        }else{
-            return view ('ticket', compact('ticket', 'event'));
         }
+        // else{
+        //     return view ('ticket', compact('ticket', 'event'));
+        // }
     }
 
     /**

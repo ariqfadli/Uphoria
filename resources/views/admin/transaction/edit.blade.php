@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Uphoria - Transaction</title>
+        <title>Admin - Edit Transaction</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Custom Google font-->
@@ -32,6 +32,19 @@
                             <li class="nav-item"><a class="nav-link" href="/admin/transaction">Transaction</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin/ticket">Ticket</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin/event">Event/Concert</a></li>
+                            <nav id="navbar" class="navbar">
+                                <ul>
+                                  <li><form method="POST" action="{{ route('admin.logout') }}">
+                                    @csrf
+                        
+                                    <x-dropdown-link :href="route('admin.logout')"
+                                            onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </x-dropdown-link>
+                                    </form></li>
+                                </ul>
+                            </nav><!-- .navbar -->
                         </ul>
                     </div>
                 </div>

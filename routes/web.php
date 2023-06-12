@@ -79,14 +79,14 @@ Route::get('/signup', function () {
 //     return view ('notification') ;
 // });
 
-Route::get('/order', 'App\Http\Controllers\orderController@create');
+Route::get('/order', 'App\Http\Controllers\orderController@create')->middleware(['auth', 'verified'])->name('order');
 Route::post('/order', 'App\Http\Controllers\orderController@store');
 
-Route::get('/ticket', 'App\Http\Controllers\ticketController@index');
+Route::get('/ticket', 'App\Http\Controllers\userticketController@index')->middleware(['auth', 'verified'])->name('ticket');
 
-Route::get('/myorder', 'App\Http\Controllers\transactionController@index');
+Route::get('/myorder', 'App\Http\Controllers\transactionController@index')->middleware(['auth', 'verified'])->name('myorder');
 
-Route::get('/notification', 'App\Http\Controllers\notificationController@index');
+Route::get('/notification', 'App\Http\Controllers\notificationController@index')->middleware(['auth', 'verified'])->name('notification');
 // Route::get('/profile', function () {
 //     return view ('profile') ;
 // });

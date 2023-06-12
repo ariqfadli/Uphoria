@@ -31,18 +31,31 @@
                             <li class="nav-item"><a class="nav-link" href="/myorder">My Order</a></li>
                             <li class="nav-item"><a class="nav-link" href="/notification">Notification</a></li>
                             <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+                            <nav id="navbar" class="navbar">
+                              <ul>
+                                <li><form method="POST" action="{{ route('logout') }}">
+                                  @csrf
+                      
+                                  <x-dropdown-link :href="route('logout')"
+                                          onclick="event.preventDefault();
+                                                      this.closest('form').submit();">
+                                      {{ __('Log Out') }}
+                                  </x-dropdown-link>
+                              </form></li>
+                              </ul>
+                            </nav><!-- .navbar -->
                         </ul>
                     </div>
                 </div>
             </nav>
 <div class="row notification-container">
-<h2 class="mt-5 mb-5 text-center text-gradient d-inline"><b>My Notifications</b></h2>\
+<h2 class="mt-5 mb-5 text-center fw-bolder text-gradient"><b>My Notifications</b></h2>\
 @foreach ($transaction as $item)
   <div class="card notification-card notification-invitation">
     <div class="card-body">
       <table>
         <tr>
-          <td style="width:70%"><div class="card-title">Ticket payment {{ $item->concert_name }} is successful at {{ $item->transaction_date }}</div></td>
+          <td style="width:70%"><div class="card-title">Your ticket payment of <b>{{ $item->concert_name }}</b> via <b>{{ $item->payment_method }}</b> with total transaction {{ 'Rp. '.number_format($item->total_price, 0, ',', '.'); }} is successful! <br> Verification date : {{ $item->transaction_date }} </div></td>
           <td style="width:30%">
    
           </td>
@@ -51,6 +64,28 @@
     </div>
   </div>
 @endforeach
+<section class="py-5 bg-gradient-primary-to-secondary text-white">
+  <div class="container px-5 my-5">
+      <div class="text-center">
+          <h2 class="display-4 fw-bolder mb-4">Let's build an euphoria in Uphoria</h2>
+          <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="ticket">Buy another ticket</a>
+      </div>
+  </div>
+</section>
+<footer class="bg-white py-4 mt-auto">
+  <div class="container px-5">
+      <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+          <div class="col-auto"><div class="small m-0">Copyright &copy; Your Website 2023</div></div>
+          <div class="col-auto">
+              <a class="small" href="#!">Privacy</a>
+              <span class="mx-1">&middot;</span>
+              <a class="small" href="#!">Terms</a>
+              <span class="mx-1">&middot;</span>
+              <a class="small" href="#!">Contact</a>
+          </div>
+      </div>
+  </div>
+</footer>
   
   {{-- <div class="card notification-card notification-warning">
     <div class="card-body">
@@ -92,4 +127,4 @@
   </div> --}}
   
   
-</div>
+  </div>

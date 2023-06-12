@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Uphoria - Event</title>
+        <title>Admin - Transaction</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Custom Google font-->
@@ -30,7 +30,7 @@
                             {{-- <li class="nav-item"><a class="nav-link" href="/admin/customer">Customer</a></li> --}}
                             <li class="nav-item"><a class="nav-link" href="/admin/transaction">Transaction</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin/ticket">Ticket</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/admin">Event/Concert</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/admin/event">Event/Concert</a></li>
                             {{-- <li class="nav-item"><a class="nav-link" href="/notification">Notification</a></li>
                             <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li> --}}
                             <nav id="navbar" class="navbar">
