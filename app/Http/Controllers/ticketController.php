@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ticket;
 use App\Models\event;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+
 
 class ticketController extends Controller
 {

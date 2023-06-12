@@ -30,7 +30,7 @@
                             {{-- <li class="nav-item"><a class="nav-link" href="/admin/customer">Customer</a></li> --}}
                             <li class="nav-item"><a class="nav-link" href="/admin/transaction">Transaction</a></li>
                             <li class="nav-item"><a class="nav-link" href="/admin/ticket">Ticket</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/admin">Event/Concert</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/admin/event">Event/Concert</a></li>
                             {{-- <li class="nav-item"><a class="nav-link" href="/notification">Notification</a></li>
                             <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li> --}}
                         </ul>
